@@ -7,12 +7,63 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		14318803375D2368A6A15C02 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D08BAB8B81D02E4A227A4CD3 /* libPods.a */; };
 		4E6C42151B5DB4DD009B22AF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E6C42141B5DB4DD009B22AF /* AppDelegate.swift */; };
 		4E6C42171B5DB4DD009B22AF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E6C42161B5DB4DD009B22AF /* ViewController.swift */; };
 		4E6C421A1B5DB4DD009B22AF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4E6C42181B5DB4DD009B22AF /* Main.storyboard */; };
 		4E6C421C1B5DB4DD009B22AF /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4E6C421B1B5DB4DD009B22AF /* Images.xcassets */; };
 		4E6C421F1B5DB4DD009B22AF /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4E6C421D1B5DB4DD009B22AF /* LaunchScreen.xib */; };
 		4E6C422B1B5DB4DD009B22AF /* ePortalTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E6C422A1B5DB4DD009B22AF /* ePortalTests.swift */; };
+		4EA65E4C1B5DBC7B00B18107 /* AsyncButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA65E2E1B5DBC7B00B18107 /* AsyncButton.swift */; };
+		4EA65E4D1B5DBC7B00B18107 /* AsyncImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA65E2F1B5DBC7B00B18107 /* AsyncImageView.swift */; };
+		4EA65E4E1B5DBC7B00B18107 /* AutoTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA65E301B5DBC7B00B18107 /* AutoTextView.swift */; };
+		4EA65E4F1B5DBC7B00B18107 /* BlurView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA65E311B5DBC7B00B18107 /* BlurView.swift */; };
+		4EA65E501B5DBC7B00B18107 /* DesignableButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA65E321B5DBC7B00B18107 /* DesignableButton.swift */; };
+		4EA65E511B5DBC7B00B18107 /* DesignableImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA65E331B5DBC7B00B18107 /* DesignableImageView.swift */; };
+		4EA65E521B5DBC7B00B18107 /* DesignableLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA65E341B5DBC7B00B18107 /* DesignableLabel.swift */; };
+		4EA65E531B5DBC7B00B18107 /* DesignableTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA65E351B5DBC7B00B18107 /* DesignableTabBarController.swift */; };
+		4EA65E541B5DBC7B00B18107 /* DesignableTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA65E361B5DBC7B00B18107 /* DesignableTextField.swift */; };
+		4EA65E551B5DBC7B00B18107 /* DesignableTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA65E371B5DBC7B00B18107 /* DesignableTextView.swift */; };
+		4EA65E561B5DBC7B00B18107 /* DesignableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA65E381B5DBC7B00B18107 /* DesignableView.swift */; };
+		4EA65E571B5DBC7B00B18107 /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA65E391B5DBC7B00B18107 /* ImageLoader.swift */; };
+		4EA65E581B5DBC7B00B18107 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4EA65E3A1B5DBC7B00B18107 /* Info.plist */; };
+		4EA65E591B5DBC7B00B18107 /* KeyboardLayoutConstraint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA65E3B1B5DBC7B00B18107 /* KeyboardLayoutConstraint.swift */; };
+		4EA65E5A1B5DBC7B00B18107 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA65E3C1B5DBC7B00B18107 /* LoadingView.swift */; };
+		4EA65E5B1B5DBC7B00B18107 /* LoadingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4EA65E3D1B5DBC7B00B18107 /* LoadingView.xib */; };
+		4EA65E5C1B5DBC7B00B18107 /* Misc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA65E3E1B5DBC7B00B18107 /* Misc.swift */; };
+		4EA65E5D1B5DBC7B00B18107 /* SoundPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA65E3F1B5DBC7B00B18107 /* SoundPlayer.swift */; };
+		4EA65E5E1B5DBC7B00B18107 /* Spring.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA65E411B5DBC7B00B18107 /* Spring.swift */; };
+		4EA65E5F1B5DBC7B00B18107 /* SpringAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA65E421B5DBC7B00B18107 /* SpringAnimation.swift */; };
+		4EA65E601B5DBC7B00B18107 /* SpringButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA65E431B5DBC7B00B18107 /* SpringButton.swift */; };
+		4EA65E611B5DBC7B00B18107 /* SpringImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA65E441B5DBC7B00B18107 /* SpringImageView.swift */; };
+		4EA65E621B5DBC7B00B18107 /* SpringLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA65E451B5DBC7B00B18107 /* SpringLabel.swift */; };
+		4EA65E631B5DBC7B00B18107 /* SpringTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA65E461B5DBC7B00B18107 /* SpringTextField.swift */; };
+		4EA65E641B5DBC7B00B18107 /* SpringTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA65E471B5DBC7B00B18107 /* SpringTextView.swift */; };
+		4EA65E651B5DBC7B00B18107 /* SpringView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA65E481B5DBC7B00B18107 /* SpringView.swift */; };
+		4EA65E661B5DBC7B00B18107 /* TransitionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA65E491B5DBC7B00B18107 /* TransitionManager.swift */; };
+		4EA65E671B5DBC7B00B18107 /* TransitionZoom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA65E4A1B5DBC7B00B18107 /* TransitionZoom.swift */; };
+		4EA65E681B5DBC7B00B18107 /* UnwindSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA65E4B1B5DBC7B00B18107 /* UnwindSegue.swift */; };
+		4EA65E6A1B5DBCCE00B18107 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA65E691B5DBCCE00B18107 /* LoginViewController.swift */; };
+		4EA65E7E1B5DBEAC00B18107 /* Lato-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4EA65E6C1B5DBEAC00B18107 /* Lato-Black.ttf */; };
+		4EA65E7F1B5DBEAC00B18107 /* Lato-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4EA65E6D1B5DBEAC00B18107 /* Lato-BlackItalic.ttf */; };
+		4EA65E801B5DBEAC00B18107 /* Lato-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4EA65E6E1B5DBEAC00B18107 /* Lato-Bold.ttf */; };
+		4EA65E811B5DBEAC00B18107 /* Lato-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4EA65E6F1B5DBEAC00B18107 /* Lato-BoldItalic.ttf */; };
+		4EA65E821B5DBEAC00B18107 /* Lato-Hairline.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4EA65E701B5DBEAC00B18107 /* Lato-Hairline.ttf */; };
+		4EA65E831B5DBEAC00B18107 /* Lato-HairlineItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4EA65E711B5DBEAC00B18107 /* Lato-HairlineItalic.ttf */; };
+		4EA65E841B5DBEAC00B18107 /* Lato-Heavy.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4EA65E721B5DBEAC00B18107 /* Lato-Heavy.ttf */; };
+		4EA65E851B5DBEAC00B18107 /* Lato-HeavyItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4EA65E731B5DBEAC00B18107 /* Lato-HeavyItalic.ttf */; };
+		4EA65E861B5DBEAC00B18107 /* Lato-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4EA65E741B5DBEAC00B18107 /* Lato-Italic.ttf */; };
+		4EA65E871B5DBEAC00B18107 /* Lato-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4EA65E751B5DBEAC00B18107 /* Lato-Light.ttf */; };
+		4EA65E881B5DBEAC00B18107 /* Lato-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4EA65E761B5DBEAC00B18107 /* Lato-LightItalic.ttf */; };
+		4EA65E891B5DBEAC00B18107 /* Lato-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4EA65E771B5DBEAC00B18107 /* Lato-Medium.ttf */; };
+		4EA65E8A1B5DBEAC00B18107 /* Lato-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4EA65E781B5DBEAC00B18107 /* Lato-MediumItalic.ttf */; };
+		4EA65E8B1B5DBEAC00B18107 /* Lato-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4EA65E791B5DBEAC00B18107 /* Lato-Regular.ttf */; };
+		4EA65E8C1B5DBEAC00B18107 /* Lato-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4EA65E7A1B5DBEAC00B18107 /* Lato-Semibold.ttf */; };
+		4EA65E8D1B5DBEAC00B18107 /* Lato-SemiboldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4EA65E7B1B5DBEAC00B18107 /* Lato-SemiboldItalic.ttf */; };
+		4EA65E8E1B5DBEAC00B18107 /* Lato-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4EA65E7C1B5DBEAC00B18107 /* Lato-Thin.ttf */; };
+		4EA65E8F1B5DBEAC00B18107 /* Lato-ThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4EA65E7D1B5DBEAC00B18107 /* Lato-ThinItalic.ttf */; };
+		4EA65E941B5DC62100B18107 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA65E931B5DC62100B18107 /* Utils.swift */; };
+		4EA65E961B5DC7F300B18107 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA65E951B5DC7F300B18107 /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +87,61 @@
 		4E6C42241B5DB4DD009B22AF /* ePortalTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ePortalTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E6C42291B5DB4DD009B22AF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4E6C422A1B5DB4DD009B22AF /* ePortalTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ePortalTests.swift; sourceTree = "<group>"; };
+		4E6C42341B5DB7FE009B22AF /* ePortal-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ePortal-Bridging-Header.h"; sourceTree = "<group>"; };
+		4EA65E2E1B5DBC7B00B18107 /* AsyncButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AsyncButton.swift; sourceTree = "<group>"; };
+		4EA65E2F1B5DBC7B00B18107 /* AsyncImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AsyncImageView.swift; sourceTree = "<group>"; };
+		4EA65E301B5DBC7B00B18107 /* AutoTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutoTextView.swift; sourceTree = "<group>"; };
+		4EA65E311B5DBC7B00B18107 /* BlurView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlurView.swift; sourceTree = "<group>"; };
+		4EA65E321B5DBC7B00B18107 /* DesignableButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DesignableButton.swift; sourceTree = "<group>"; };
+		4EA65E331B5DBC7B00B18107 /* DesignableImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DesignableImageView.swift; sourceTree = "<group>"; };
+		4EA65E341B5DBC7B00B18107 /* DesignableLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DesignableLabel.swift; sourceTree = "<group>"; };
+		4EA65E351B5DBC7B00B18107 /* DesignableTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DesignableTabBarController.swift; sourceTree = "<group>"; };
+		4EA65E361B5DBC7B00B18107 /* DesignableTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DesignableTextField.swift; sourceTree = "<group>"; };
+		4EA65E371B5DBC7B00B18107 /* DesignableTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DesignableTextView.swift; sourceTree = "<group>"; };
+		4EA65E381B5DBC7B00B18107 /* DesignableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DesignableView.swift; sourceTree = "<group>"; };
+		4EA65E391B5DBC7B00B18107 /* ImageLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
+		4EA65E3A1B5DBC7B00B18107 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4EA65E3B1B5DBC7B00B18107 /* KeyboardLayoutConstraint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardLayoutConstraint.swift; sourceTree = "<group>"; };
+		4EA65E3C1B5DBC7B00B18107 /* LoadingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
+		4EA65E3D1B5DBC7B00B18107 /* LoadingView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoadingView.xib; sourceTree = "<group>"; };
+		4EA65E3E1B5DBC7B00B18107 /* Misc.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Misc.swift; sourceTree = "<group>"; };
+		4EA65E3F1B5DBC7B00B18107 /* SoundPlayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoundPlayer.swift; sourceTree = "<group>"; };
+		4EA65E401B5DBC7B00B18107 /* Spring.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Spring.h; sourceTree = "<group>"; };
+		4EA65E411B5DBC7B00B18107 /* Spring.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Spring.swift; sourceTree = "<group>"; };
+		4EA65E421B5DBC7B00B18107 /* SpringAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpringAnimation.swift; sourceTree = "<group>"; };
+		4EA65E431B5DBC7B00B18107 /* SpringButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpringButton.swift; sourceTree = "<group>"; };
+		4EA65E441B5DBC7B00B18107 /* SpringImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpringImageView.swift; sourceTree = "<group>"; };
+		4EA65E451B5DBC7B00B18107 /* SpringLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpringLabel.swift; sourceTree = "<group>"; };
+		4EA65E461B5DBC7B00B18107 /* SpringTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpringTextField.swift; sourceTree = "<group>"; };
+		4EA65E471B5DBC7B00B18107 /* SpringTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpringTextView.swift; sourceTree = "<group>"; };
+		4EA65E481B5DBC7B00B18107 /* SpringView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpringView.swift; sourceTree = "<group>"; };
+		4EA65E491B5DBC7B00B18107 /* TransitionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionManager.swift; sourceTree = "<group>"; };
+		4EA65E4A1B5DBC7B00B18107 /* TransitionZoom.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionZoom.swift; sourceTree = "<group>"; };
+		4EA65E4B1B5DBC7B00B18107 /* UnwindSegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnwindSegue.swift; sourceTree = "<group>"; };
+		4EA65E691B5DBCCE00B18107 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		4EA65E6C1B5DBEAC00B18107 /* Lato-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Black.ttf"; sourceTree = "<group>"; };
+		4EA65E6D1B5DBEAC00B18107 /* Lato-BlackItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-BlackItalic.ttf"; sourceTree = "<group>"; };
+		4EA65E6E1B5DBEAC00B18107 /* Lato-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Bold.ttf"; sourceTree = "<group>"; };
+		4EA65E6F1B5DBEAC00B18107 /* Lato-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-BoldItalic.ttf"; sourceTree = "<group>"; };
+		4EA65E701B5DBEAC00B18107 /* Lato-Hairline.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Hairline.ttf"; sourceTree = "<group>"; };
+		4EA65E711B5DBEAC00B18107 /* Lato-HairlineItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-HairlineItalic.ttf"; sourceTree = "<group>"; };
+		4EA65E721B5DBEAC00B18107 /* Lato-Heavy.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Heavy.ttf"; sourceTree = "<group>"; };
+		4EA65E731B5DBEAC00B18107 /* Lato-HeavyItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-HeavyItalic.ttf"; sourceTree = "<group>"; };
+		4EA65E741B5DBEAC00B18107 /* Lato-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Italic.ttf"; sourceTree = "<group>"; };
+		4EA65E751B5DBEAC00B18107 /* Lato-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Light.ttf"; sourceTree = "<group>"; };
+		4EA65E761B5DBEAC00B18107 /* Lato-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-LightItalic.ttf"; sourceTree = "<group>"; };
+		4EA65E771B5DBEAC00B18107 /* Lato-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Medium.ttf"; sourceTree = "<group>"; };
+		4EA65E781B5DBEAC00B18107 /* Lato-MediumItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-MediumItalic.ttf"; sourceTree = "<group>"; };
+		4EA65E791B5DBEAC00B18107 /* Lato-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Regular.ttf"; sourceTree = "<group>"; };
+		4EA65E7A1B5DBEAC00B18107 /* Lato-Semibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Semibold.ttf"; sourceTree = "<group>"; };
+		4EA65E7B1B5DBEAC00B18107 /* Lato-SemiboldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-SemiboldItalic.ttf"; sourceTree = "<group>"; };
+		4EA65E7C1B5DBEAC00B18107 /* Lato-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Thin.ttf"; sourceTree = "<group>"; };
+		4EA65E7D1B5DBEAC00B18107 /* Lato-ThinItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-ThinItalic.ttf"; sourceTree = "<group>"; };
+		4EA65E931B5DC62100B18107 /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		4EA65E951B5DC7F300B18107 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		60EA86A81CF4CE747F455060 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		C678D97103A9EF641508A19A /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		D08BAB8B81D02E4A227A4CD3 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +149,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				14318803375D2368A6A15C02 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -56,12 +163,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		114C42D280A3644ECAF2D51A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D08BAB8B81D02E4A227A4CD3 /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		4E6C42061B5DB4DD009B22AF = {
 			isa = PBXGroup;
 			children = (
 				4E6C42111B5DB4DD009B22AF /* ePortal */,
 				4E6C42271B5DB4DD009B22AF /* ePortalTests */,
 				4E6C42101B5DB4DD009B22AF /* Products */,
+				59032E3A21137FFEE9E04CF1 /* Pods */,
+				114C42D280A3644ECAF2D51A /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -78,10 +195,11 @@
 			isa = PBXGroup;
 			children = (
 				4E6C42141B5DB4DD009B22AF /* AppDelegate.swift */,
+				4EA65E691B5DBCCE00B18107 /* LoginViewController.swift */,
 				4E6C42161B5DB4DD009B22AF /* ViewController.swift */,
-				4E6C42181B5DB4DD009B22AF /* Main.storyboard */,
 				4E6C421B1B5DB4DD009B22AF /* Images.xcassets */,
 				4E6C421D1B5DB4DD009B22AF /* LaunchScreen.xib */,
+				4EA65E921B5DC16600B18107 /* Storyboard */,
 				4E6C42121B5DB4DD009B22AF /* Supporting Files */,
 			);
 			path = ePortal;
@@ -90,7 +208,12 @@
 		4E6C42121B5DB4DD009B22AF /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				4EA65E6B1B5DBEAC00B18107 /* Fonts */,
+				4EA65E2D1B5DBC7B00B18107 /* Spring */,
 				4E6C42131B5DB4DD009B22AF /* Info.plist */,
+				4EA65E951B5DC7F300B18107 /* Constants.swift */,
+				4EA65E931B5DC62100B18107 /* Utils.swift */,
+				4E6C42341B5DB7FE009B22AF /* ePortal-Bridging-Header.h */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -112,6 +235,86 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		4EA65E2D1B5DBC7B00B18107 /* Spring */ = {
+			isa = PBXGroup;
+			children = (
+				4EA65E2E1B5DBC7B00B18107 /* AsyncButton.swift */,
+				4EA65E2F1B5DBC7B00B18107 /* AsyncImageView.swift */,
+				4EA65E301B5DBC7B00B18107 /* AutoTextView.swift */,
+				4EA65E311B5DBC7B00B18107 /* BlurView.swift */,
+				4EA65E321B5DBC7B00B18107 /* DesignableButton.swift */,
+				4EA65E331B5DBC7B00B18107 /* DesignableImageView.swift */,
+				4EA65E341B5DBC7B00B18107 /* DesignableLabel.swift */,
+				4EA65E351B5DBC7B00B18107 /* DesignableTabBarController.swift */,
+				4EA65E361B5DBC7B00B18107 /* DesignableTextField.swift */,
+				4EA65E371B5DBC7B00B18107 /* DesignableTextView.swift */,
+				4EA65E381B5DBC7B00B18107 /* DesignableView.swift */,
+				4EA65E391B5DBC7B00B18107 /* ImageLoader.swift */,
+				4EA65E3A1B5DBC7B00B18107 /* Info.plist */,
+				4EA65E3B1B5DBC7B00B18107 /* KeyboardLayoutConstraint.swift */,
+				4EA65E3C1B5DBC7B00B18107 /* LoadingView.swift */,
+				4EA65E3D1B5DBC7B00B18107 /* LoadingView.xib */,
+				4EA65E3E1B5DBC7B00B18107 /* Misc.swift */,
+				4EA65E3F1B5DBC7B00B18107 /* SoundPlayer.swift */,
+				4EA65E401B5DBC7B00B18107 /* Spring.h */,
+				4EA65E411B5DBC7B00B18107 /* Spring.swift */,
+				4EA65E421B5DBC7B00B18107 /* SpringAnimation.swift */,
+				4EA65E431B5DBC7B00B18107 /* SpringButton.swift */,
+				4EA65E441B5DBC7B00B18107 /* SpringImageView.swift */,
+				4EA65E451B5DBC7B00B18107 /* SpringLabel.swift */,
+				4EA65E461B5DBC7B00B18107 /* SpringTextField.swift */,
+				4EA65E471B5DBC7B00B18107 /* SpringTextView.swift */,
+				4EA65E481B5DBC7B00B18107 /* SpringView.swift */,
+				4EA65E491B5DBC7B00B18107 /* TransitionManager.swift */,
+				4EA65E4A1B5DBC7B00B18107 /* TransitionZoom.swift */,
+				4EA65E4B1B5DBC7B00B18107 /* UnwindSegue.swift */,
+			);
+			path = Spring;
+			sourceTree = "<group>";
+		};
+		4EA65E6B1B5DBEAC00B18107 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				4EA65E6C1B5DBEAC00B18107 /* Lato-Black.ttf */,
+				4EA65E6D1B5DBEAC00B18107 /* Lato-BlackItalic.ttf */,
+				4EA65E6E1B5DBEAC00B18107 /* Lato-Bold.ttf */,
+				4EA65E6F1B5DBEAC00B18107 /* Lato-BoldItalic.ttf */,
+				4EA65E701B5DBEAC00B18107 /* Lato-Hairline.ttf */,
+				4EA65E711B5DBEAC00B18107 /* Lato-HairlineItalic.ttf */,
+				4EA65E721B5DBEAC00B18107 /* Lato-Heavy.ttf */,
+				4EA65E731B5DBEAC00B18107 /* Lato-HeavyItalic.ttf */,
+				4EA65E741B5DBEAC00B18107 /* Lato-Italic.ttf */,
+				4EA65E751B5DBEAC00B18107 /* Lato-Light.ttf */,
+				4EA65E761B5DBEAC00B18107 /* Lato-LightItalic.ttf */,
+				4EA65E771B5DBEAC00B18107 /* Lato-Medium.ttf */,
+				4EA65E781B5DBEAC00B18107 /* Lato-MediumItalic.ttf */,
+				4EA65E791B5DBEAC00B18107 /* Lato-Regular.ttf */,
+				4EA65E7A1B5DBEAC00B18107 /* Lato-Semibold.ttf */,
+				4EA65E7B1B5DBEAC00B18107 /* Lato-SemiboldItalic.ttf */,
+				4EA65E7C1B5DBEAC00B18107 /* Lato-Thin.ttf */,
+				4EA65E7D1B5DBEAC00B18107 /* Lato-ThinItalic.ttf */,
+			);
+			name = Fonts;
+			path = Lato;
+			sourceTree = "<group>";
+		};
+		4EA65E921B5DC16600B18107 /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				4E6C42181B5DB4DD009B22AF /* Main.storyboard */,
+			);
+			name = Storyboard;
+			sourceTree = "<group>";
+		};
+		59032E3A21137FFEE9E04CF1 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				C678D97103A9EF641508A19A /* Pods.debug.xcconfig */,
+				60EA86A81CF4CE747F455060 /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -119,9 +322,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4E6C422E1B5DB4DD009B22AF /* Build configuration list for PBXNativeTarget "ePortal" */;
 			buildPhases = (
+				C6AC21EE20C790D142CF6DD6 /* Check Pods Manifest.lock */,
 				4E6C420B1B5DB4DD009B22AF /* Sources */,
 				4E6C420C1B5DB4DD009B22AF /* Frameworks */,
 				4E6C420D1B5DB4DD009B22AF /* Resources */,
+				9F6890AB14549E0111EA9F15 /* Copy Pods Resources */,
+				4EA65E2A1B5DBB3300B18107 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -192,9 +398,29 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4EA65E871B5DBEAC00B18107 /* Lato-Light.ttf in Resources */,
+				4EA65E841B5DBEAC00B18107 /* Lato-Heavy.ttf in Resources */,
+				4EA65E581B5DBC7B00B18107 /* Info.plist in Resources */,
+				4EA65E8B1B5DBEAC00B18107 /* Lato-Regular.ttf in Resources */,
 				4E6C421A1B5DB4DD009B22AF /* Main.storyboard in Resources */,
+				4EA65E8C1B5DBEAC00B18107 /* Lato-Semibold.ttf in Resources */,
+				4EA65E7F1B5DBEAC00B18107 /* Lato-BlackItalic.ttf in Resources */,
+				4EA65E811B5DBEAC00B18107 /* Lato-BoldItalic.ttf in Resources */,
 				4E6C421F1B5DB4DD009B22AF /* LaunchScreen.xib in Resources */,
 				4E6C421C1B5DB4DD009B22AF /* Images.xcassets in Resources */,
+				4EA65E851B5DBEAC00B18107 /* Lato-HeavyItalic.ttf in Resources */,
+				4EA65E8A1B5DBEAC00B18107 /* Lato-MediumItalic.ttf in Resources */,
+				4EA65E861B5DBEAC00B18107 /* Lato-Italic.ttf in Resources */,
+				4EA65E831B5DBEAC00B18107 /* Lato-HairlineItalic.ttf in Resources */,
+				4EA65E881B5DBEAC00B18107 /* Lato-LightItalic.ttf in Resources */,
+				4EA65E8E1B5DBEAC00B18107 /* Lato-Thin.ttf in Resources */,
+				4EA65E891B5DBEAC00B18107 /* Lato-Medium.ttf in Resources */,
+				4EA65E8F1B5DBEAC00B18107 /* Lato-ThinItalic.ttf in Resources */,
+				4EA65E821B5DBEAC00B18107 /* Lato-Hairline.ttf in Resources */,
+				4EA65E7E1B5DBEAC00B18107 /* Lato-Black.ttf in Resources */,
+				4EA65E5B1B5DBC7B00B18107 /* LoadingView.xib in Resources */,
+				4EA65E801B5DBEAC00B18107 /* Lato-Bold.ttf in Resources */,
+				4EA65E8D1B5DBEAC00B18107 /* Lato-SemiboldItalic.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -207,13 +433,90 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		4EA65E2A1B5DBB3300B18107 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Fabric/Fabric.framework/run\" 5b89f5f37dc54b90c30689af907be751e51d94c9 485b44e84f58fb7e08c1302783a9ccdb67bd2a0510723c15682c3abd511ddaab";
+			showEnvVarsInLog = 0;
+		};
+		9F6890AB14549E0111EA9F15 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C6AC21EE20C790D142CF6DD6 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		4E6C420B1B5DB4DD009B22AF /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4EA65E621B5DBC7B00B18107 /* SpringLabel.swift in Sources */,
+				4EA65E571B5DBC7B00B18107 /* ImageLoader.swift in Sources */,
+				4EA65E5C1B5DBC7B00B18107 /* Misc.swift in Sources */,
+				4EA65E511B5DBC7B00B18107 /* DesignableImageView.swift in Sources */,
+				4EA65E611B5DBC7B00B18107 /* SpringImageView.swift in Sources */,
 				4E6C42171B5DB4DD009B22AF /* ViewController.swift in Sources */,
+				4EA65E5D1B5DBC7B00B18107 /* SoundPlayer.swift in Sources */,
+				4EA65E961B5DC7F300B18107 /* Constants.swift in Sources */,
+				4EA65E641B5DBC7B00B18107 /* SpringTextView.swift in Sources */,
 				4E6C42151B5DB4DD009B22AF /* AppDelegate.swift in Sources */,
+				4EA65E561B5DBC7B00B18107 /* DesignableView.swift in Sources */,
+				4EA65E5F1B5DBC7B00B18107 /* SpringAnimation.swift in Sources */,
+				4EA65E5E1B5DBC7B00B18107 /* Spring.swift in Sources */,
+				4EA65E5A1B5DBC7B00B18107 /* LoadingView.swift in Sources */,
+				4EA65E631B5DBC7B00B18107 /* SpringTextField.swift in Sources */,
+				4EA65E501B5DBC7B00B18107 /* DesignableButton.swift in Sources */,
+				4EA65E541B5DBC7B00B18107 /* DesignableTextField.swift in Sources */,
+				4EA65E4C1B5DBC7B00B18107 /* AsyncButton.swift in Sources */,
+				4EA65E591B5DBC7B00B18107 /* KeyboardLayoutConstraint.swift in Sources */,
+				4EA65E6A1B5DBCCE00B18107 /* LoginViewController.swift in Sources */,
+				4EA65E601B5DBC7B00B18107 /* SpringButton.swift in Sources */,
+				4EA65E4D1B5DBC7B00B18107 /* AsyncImageView.swift in Sources */,
+				4EA65E941B5DC62100B18107 /* Utils.swift in Sources */,
+				4EA65E531B5DBC7B00B18107 /* DesignableTabBarController.swift in Sources */,
+				4EA65E4E1B5DBC7B00B18107 /* AutoTextView.swift in Sources */,
+				4EA65E551B5DBC7B00B18107 /* DesignableTextView.swift in Sources */,
+				4EA65E521B5DBC7B00B18107 /* DesignableLabel.swift in Sources */,
+				4EA65E681B5DBC7B00B18107 /* UnwindSegue.swift in Sources */,
+				4EA65E661B5DBC7B00B18107 /* TransitionManager.swift in Sources */,
+				4EA65E4F1B5DBC7B00B18107 /* BlurView.swift in Sources */,
+				4EA65E651B5DBC7B00B18107 /* SpringView.swift in Sources */,
+				4EA65E671B5DBC7B00B18107 /* TransitionZoom.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -338,21 +641,25 @@
 		};
 		4E6C422F1B5DB4DD009B22AF /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C678D97103A9EF641508A19A /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = ePortal/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "ePortal/ePortal-Bridging-Header.h";
 			};
 			name = Debug;
 		};
 		4E6C42301B5DB4DD009B22AF /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 60EA86A81CF4CE747F455060 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = ePortal/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "ePortal/ePortal-Bridging-Header.h";
 			};
 			name = Release;
 		};
@@ -409,6 +716,7 @@
 				4E6C42301B5DB4DD009B22AF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4E6C42311B5DB4DD009B22AF /* Build configuration list for PBXNativeTarget "ePortalTests" */ = {
 			isa = XCConfigurationList;
@@ -417,6 +725,7 @@
 				4E6C42331B5DB4DD009B22AF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
