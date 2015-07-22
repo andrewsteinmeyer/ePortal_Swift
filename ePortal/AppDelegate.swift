@@ -15,12 +15,30 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
   var window: UIWindow?
 
-
   func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-    // Override point for customization after application launch.
     
-    Fabric.with([Twitter()])
+    initializeDependencies()
+    
+    let viewControllerId: String
+    
+    if ClientManager.sharedInstance.isLoggedIn() {
+      viewControllerId = Constants.mainTabBarVC
+      ClientManager.sharedInstance.resumeSessionWithCompletionHandler() { task in
+        println("resumed in AppDelegate so skipping login page")
+        return nil
+      }
+    }
+    else {
+      viewControllerId = Constants.loginVC
+    }
+    
+    self.window!.rootViewController = self.window?.rootViewController?.storyboard?.instantiateViewControllerWithIdentifier(viewControllerId) as? UIViewController
+    
     return true
+  }
+  
+  func initializeDependencies() {
+    Fabric.with([Twitter()])
   }
 
 

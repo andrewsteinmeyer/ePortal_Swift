@@ -17,4 +17,13 @@ struct Constants {
   static let DeviceTokenKey = "DeviceToken"
   static let CognitoDeviceTokenKey = "CognitoDeviceTokenKey"
   static let CognitoPushNotification = "CognitoPushNotification"
+  
+  //Providers
+  static let TwitterProvider = "Twitter"
+  
+  //ViewControllers
+  static let loginVC = "LoginViewController"
+  static let mainTabBarVC = "MainTabBarController"
+  static let broadcastVC = "BroadcastViewController"
+  static let detailVC = "DetailViewController"
 }

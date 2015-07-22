@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		14318803375D2368A6A15C02 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D08BAB8B81D02E4A227A4CD3 /* libPods.a */; };
+		083F249E889F43CC25020607 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 184C457D8150E155C73992F1 /* libPods.a */; };
 		4E6C42151B5DB4DD009B22AF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E6C42141B5DB4DD009B22AF /* AppDelegate.swift */; };
 		4E6C42171B5DB4DD009B22AF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E6C42161B5DB4DD009B22AF /* ViewController.swift */; };
 		4E6C421A1B5DB4DD009B22AF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4E6C42181B5DB4DD009B22AF /* Main.storyboard */; };
@@ -64,6 +64,8 @@
 		4EA65E8F1B5DBEAC00B18107 /* Lato-ThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4EA65E7D1B5DBEAC00B18107 /* Lato-ThinItalic.ttf */; };
 		4EA65E941B5DC62100B18107 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA65E931B5DC62100B18107 /* Utils.swift */; };
 		4EA65E961B5DC7F300B18107 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA65E951B5DC7F300B18107 /* Constants.swift */; };
+		4EA65E981B5DCE6300B18107 /* ClientManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA65E971B5DCE6300B18107 /* ClientManager.swift */; };
+		4EA65EA91B5DD9EB00B18107 /* KeychainAccess.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EA65EA81B5DD9EB00B18107 /* KeychainAccess.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,6 +79,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		184C457D8150E155C73992F1 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E6C420F1B5DB4DD009B22AF /* ePortal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ePortal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E6C42131B5DB4DD009B22AF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4E6C42141B5DB4DD009B22AF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -139,9 +142,10 @@
 		4EA65E7D1B5DBEAC00B18107 /* Lato-ThinItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-ThinItalic.ttf"; sourceTree = "<group>"; };
 		4EA65E931B5DC62100B18107 /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		4EA65E951B5DC7F300B18107 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		4EA65E971B5DCE6300B18107 /* ClientManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClientManager.swift; sourceTree = "<group>"; };
+		4EA65EA81B5DD9EB00B18107 /* KeychainAccess.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = KeychainAccess.framework; path = "../../KeychainAccess/Lib/build/Debug-iphoneos/KeychainAccess.framework"; sourceTree = "<group>"; };
 		60EA86A81CF4CE747F455060 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		C678D97103A9EF641508A19A /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
-		D08BAB8B81D02E4A227A4CD3 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -149,7 +153,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				14318803375D2368A6A15C02 /* libPods.a in Frameworks */,
+				4EA65EA91B5DD9EB00B18107 /* KeychainAccess.framework in Frameworks */,
+				083F249E889F43CC25020607 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -166,7 +171,8 @@
 		114C42D280A3644ECAF2D51A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				D08BAB8B81D02E4A227A4CD3 /* libPods.a */,
+				4EA65EA81B5DD9EB00B18107 /* KeychainAccess.framework */,
+				184C457D8150E155C73992F1 /* libPods.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -196,6 +202,7 @@
 			children = (
 				4E6C42141B5DB4DD009B22AF /* AppDelegate.swift */,
 				4EA65E691B5DBCCE00B18107 /* LoginViewController.swift */,
+				4EA65E971B5DCE6300B18107 /* ClientManager.swift */,
 				4E6C42161B5DB4DD009B22AF /* ViewController.swift */,
 				4E6C421B1B5DB4DD009B22AF /* Images.xcassets */,
 				4E6C421D1B5DB4DD009B22AF /* LaunchScreen.xib */,
@@ -487,6 +494,7 @@
 			files = (
 				4EA65E621B5DBC7B00B18107 /* SpringLabel.swift in Sources */,
 				4EA65E571B5DBC7B00B18107 /* ImageLoader.swift in Sources */,
+				4EA65E981B5DCE6300B18107 /* ClientManager.swift in Sources */,
 				4EA65E5C1B5DBC7B00B18107 /* Misc.swift in Sources */,
 				4EA65E511B5DBC7B00B18107 /* DesignableImageView.swift in Sources */,
 				4EA65E611B5DBC7B00B18107 /* SpringImageView.swift in Sources */,
@@ -644,6 +652,10 @@
 			baseConfigurationReference = C678D97103A9EF641508A19A /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Users/andrewsteinmeyernew/Desktop/KeychainAccess/Lib/build/Debug-iphoneos",
+				);
 				INFOPLIST_FILE = ePortal/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -656,6 +668,10 @@
 			baseConfigurationReference = 60EA86A81CF4CE747F455060 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Users/andrewsteinmeyernew/Desktop/KeychainAccess/Lib/build/Debug-iphoneos",
+				);
 				INFOPLIST_FILE = ePortal/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";

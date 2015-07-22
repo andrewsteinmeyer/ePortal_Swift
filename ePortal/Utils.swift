@@ -9,7 +9,6 @@
 import Foundation
 import Accounts
 
-
 var GlobalMainQueue: dispatch_queue_t {
   return dispatch_get_main_queue()
 }

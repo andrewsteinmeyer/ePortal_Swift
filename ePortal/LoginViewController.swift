@@ -20,6 +20,8 @@ class LoginViewController: UIViewController {
     super.viewDidLoad()
     
     setupLoginButton()
+    
+    resumeSession()
   }
 
   
@@ -31,7 +33,7 @@ class LoginViewController: UIViewController {
     unhighlightBorder()
     
     toggleLoginButton()
-    logInUser()
+    loginUser()
     
   }
   
@@ -83,37 +85,39 @@ extension LoginViewController {
   
   //MARK: User Login
   
-  func logInUser() {
+  func loginUser() {
     
-    Twitter.sharedInstance().logInWithCompletion { session, error in
-      if (session != nil) {
-        println("signed in as \(session.userName)")
-        println("authToken: \(session.authToken)")
-        println("authSecret: \(session.authTokenSecret)")
-        var value = session.authToken + ";" + session.authTokenSecret
-        // Note: This overrides any existing logins
-        
-        // Override point for customization after application launch.
-        let credentialProvider = AWSCognitoCredentialsProvider(
-          regionType: Constants.CognitoRegionType,
-          identityPoolId: Constants.CognitoIdentityPoolId)
-        credentialProvider.logins = ["api.twitter.com": value]
-        
-        let configuration = AWSServiceConfiguration(
-          region: Constants.DefaultServiceRegionType,
-          credentialsProvider: credentialProvider)
-        AWSServiceManager.defaultServiceManager().defaultServiceConfiguration = configuration
-        
-        
-      } else {
-        self.alertWithTitle("Error loggin in with Twitter", message: error.localizedDescription ?? "Sorry, could not login. Darn it")
-        println("error: \(error.localizedDescription)")
+    ClientManager.sharedInstance.loginWithCompletionHandler() { task in
+      
+      if (task.error == nil) {
+        println("hooray logged in and back in LoginViewController")
+        self.performSegueWithIdentifier("ShowMainTabBarController", sender: nil)
+      }
+      else {
+        self.alertWithTitle("Error with Twitter session", message: "Sorry, could not login. Darn it")
         
         afterDelay(0.6) {
           self.toggleLoginButton()
         }
       }
+      
+      return nil
     }
   }
+  
+  func resumeSession() {
+    ClientManager.sharedInstance.resumeSessionWithCompletionHandler() { task in
+      
+      if (task.error == nil) {
+        println("back to Login controller we resumed the session")
+      }
+      else {
+        self.alertWithTitle("Error resuming AWS session", message: "Sorry, could not login. Darn it")
+      }
+      
+      return nil
+    }
+  }
+  
 }
 

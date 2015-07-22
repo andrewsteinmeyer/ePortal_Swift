@@ -9,11 +9,11 @@ PODS:
   - TwitterKit (1.8.1)
 
 DEPENDENCIES:
-  - AWSCognito
-  - AWSCore
-  - Fabric
-  - TwitterCore
-  - TwitterKit
+  - AWSCognito (= 2.2.2)
+  - AWSCore (= 2.2.2)
+  - Fabric (= 1.2.8)
+  - TwitterCore (= 1.8.1)
+  - TwitterKit (= 1.8.1)
 
 SPEC CHECKSUMS:
   AWSCognito: c7364b3ac4bf8e5849eead5c678513084750c32e
