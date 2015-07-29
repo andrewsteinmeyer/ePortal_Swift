@@ -33,12 +33,14 @@ exports.handler = function(event, context) {
       });
     }
   ], function (err, authData) {
+      var response = '';
+
       if (err) {
-        var errMessage = 'Could not login to Firebase with token provided due to error: ' + err;
-        console.log(errMessage);
+        response = 'Could not login to Firebase with token provided due to error: ' + err;
+        console.log(response);
       }
       else {
-        console.log("Auth data: ", authData);
+        response = authData;
       }
 
       context.done();
