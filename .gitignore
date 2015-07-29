@@ -16,3 +16,10 @@ DerivedData
 *.hmap
 *.ipa
 *.xcuserstate
+
+# AWS
+# 
+config.env.production
+dist/
+test/
+node_modules/

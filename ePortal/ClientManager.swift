@@ -130,10 +130,6 @@ final class ClientManager {
   func loginWithTwitter() {
     Twitter.sharedInstance().logInWithCompletion { session, error in
       if (session != nil) {
-        println("signed in as \(session.userName)")
-        println("authToken: \(session.authToken)")
-        println("authSecret: \(session.authTokenSecret)")
-        
         self.completeTwitterLogin()
       }
       else {
