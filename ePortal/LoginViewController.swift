@@ -86,8 +86,8 @@ extension LoginViewController {
   //MARK: User Login
   
   func loginUser() {
-    
-    ClientManager.sharedInstance.loginWithCompletionHandler() { task in
+    ClientManager.sharedInstance.loginWithCompletionHandler() {
+      task in
       
       if (task.error == nil) {
         println("hooray logged in and back in LoginViewController")
@@ -106,7 +106,8 @@ extension LoginViewController {
   }
   
   func resumeSession() {
-    ClientManager.sharedInstance.resumeSessionWithCompletionHandler() { task in
+    ClientManager.sharedInstance.resumeSessionWithCompletionHandler() {
+      task in
       
       if (task.error == nil) {
         println("back to Login controller we resumed the session")
@@ -114,9 +115,10 @@ extension LoginViewController {
       else {
         self.alertWithTitle("Error resuming AWS session", message: "Sorry, could not login. Darn it")
       }
-      
       return nil
+      
     }
+    
   }
   
 }

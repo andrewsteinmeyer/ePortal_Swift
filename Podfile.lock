@@ -2,6 +2,8 @@ PODS:
   - AWSCognito (2.2.2):
     - AWSCore (= 2.2.2)
   - AWSCore (2.2.2)
+  - AWSLambda (2.2.2):
+    - AWSCore (= 2.2.2)
   - Fabric (1.2.8):
     - Fabric/Base (= 1.2.8)
   - Fabric/Base (1.2.8)
@@ -11,6 +13,7 @@ PODS:
 DEPENDENCIES:
   - AWSCognito (= 2.2.2)
   - AWSCore (= 2.2.2)
+  - AWSLambda (= 2.2.2)
   - Fabric (= 1.2.8)
   - TwitterCore (= 1.8.1)
   - TwitterKit (= 1.8.1)
@@ -18,6 +21,7 @@ DEPENDENCIES:
 SPEC CHECKSUMS:
   AWSCognito: c7364b3ac4bf8e5849eead5c678513084750c32e
   AWSCore: 3e969334460cc7ba16504fb2e074f59f95880800
+  AWSLambda: 6606d7d64ada65b9523373090bc94afce68392dc
   Fabric: a9eabe53915e9f1db55a84dd2838737928675878
   TwitterCore: 0a26fb8054bc23d8986344d3dcb6602255b6aec5
   TwitterKit: 88daaebdb8bfb5847d76d8ae159841248427931d

@@ -7,11 +7,21 @@ var zip = require('gulp-zip');
 var AWS = require('aws-sdk');
 var fs = require('fs');
 var runSequence = require('run-sequence');
+var argv = require('yargs').argv;
+
+function checkName() {
+  if (!argv.name) {
+    console.log("\nforgot to pass in the name of the function, exiting you forgetful nelly\n");
+    process.exit();
+  }
+}
 
 // First we need to clean out the dist folder and remove the compiled zip file.
 gulp.task('clean', function(cb) {
+  checkName()
+
   del('./dist',
-    del('./dist.zip', cb)
+    del('./' + argv.name + '.zip', cb)
   );
 });
 
@@ -37,8 +47,10 @@ gulp.task('env', function() {
 
 // Now the dist directory is ready to go. Zip it.
 gulp.task('zip', function() {
+  checkName();
+
   gulp.src(['dist/**/*', '!dist/package.json', 'dist/.*'])
-    .pipe(zip('dist.zip'))
+    .pipe(zip(argv.name + '.zip'))
     .pipe(gulp.dest('./'));
 });
 
@@ -50,10 +62,14 @@ gulp.task('zip', function() {
 //
 // See http://aws.amazon.com/sdk-for-node-js/
 gulp.task('upload', function() {
+  checkName();
 
   AWS.config.region = 'us-east-1';
   var lambda = new AWS.Lambda();
-  var functionName = 'generateFirebaseToken';
+
+  //console.log("name: " + argv.name);
+
+  var functionName = argv.name;
 
   lambda.getFunction({FunctionName: functionName}, function(err, data) {
     if (err) {
@@ -73,7 +89,7 @@ gulp.task('upload', function() {
       FunctionName: functionName,
     };
 
-    fs.readFile('./dist.zip', function(err, data) {
+    fs.readFile('./' + argv.name + '.zip', function(err, data) {
       params['ZipFile'] = data;
       lambda.updateFunctionCode(params, function(err, data) {
         if (err)  {
@@ -88,5 +104,6 @@ gulp.task('upload', function() {
 
 // The key to deploying as a single command is to manage the sequence of events.
 gulp.task('default', function(callback) {
-  return runSequence('clean', ['js', 'npm', 'env'], ['zip'], callback);
+  runSequence(['js', 'npm', 'env'],
+              callback);
 });

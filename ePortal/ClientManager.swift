@@ -10,11 +10,15 @@ import KeychainAccess
 import TwitterKit
 import Fabric
 
+/*
+  ClientManager handles login details for the client using AWS Cognito 
+*/
+
 final class ClientManager {
 
   private var credentialsProvider: AWSCognitoCredentialsProvider!
   private var completionHandler: AWSContinuationBlock!
-  private var keychain: Keychain
+  private var keychain: Keychain!
 
   //MARK: Lifecycle
 
@@ -64,7 +68,7 @@ final class ClientManager {
       }
       
       //Force refresh of credentials to see if we need to merge identities
-      //Currently only supporting Twitter as login provider, but could add more later (Facebook, etc)
+      //Currently only supporting Twitter as login provider, but could add more later (Digits, Facebook, Amazon, etc)
       task = self.credentialsProvider.refresh()
     }
     
@@ -75,24 +79,28 @@ final class ClientManager {
         println("setup AWS credentials")
         
         //TODO: Set Current Device Token stuff for Cognito sync
+        println("Cognito id: \(task.result)")
         
       }
       return task
       
-    }.continueWithBlock(completionHandler)
+    }.continueWithBlock(self.completionHandler)
     
   }
   
-  func resumeSessionWithCompletionHandler(completionHandler: AWSContinuationBlock) {
+  func resumeSessionWithCompletionHandler(completionHandler: AWSContinuationBlock) -> AWSTask {
     self.completionHandler = completionHandler
     
     if ((self.keychain[Constants.TwitterProvider]) != nil) {
+      println("logging in with twitter")
       loginWithTwitter()
     }
-    
-    if (self.credentialsProvider == nil) {
+    else if (self.credentialsProvider == nil) {
+      println("getting aws credentials")
       self.completeLogin(nil)
     }
+    
+    return AWSTask(result: nil)
   }
   
   func loginWithCompletionHandler(completionHandler: AWSContinuationBlock) {
@@ -119,8 +127,12 @@ final class ClientManager {
   func isLoggedIn() -> Bool {
     return self.isLoggedInWithTwitter()
   }
+  
+  func getIdentityId() -> String {
+    return self.credentialsProvider.identityId
+  }
 
-  //MARK: Twitter/Digits
+  //MARK: Twitter
   
   func isLoggedInWithTwitter() -> Bool {
     var loggedIn = Twitter.sharedInstance().session() != nil;

@@ -66,6 +66,7 @@
 		4EA65E961B5DC7F300B18107 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA65E951B5DC7F300B18107 /* Constants.swift */; };
 		4EA65E981B5DCE6300B18107 /* ClientManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA65E971B5DCE6300B18107 /* ClientManager.swift */; };
 		4EA65EA91B5DD9EB00B18107 /* KeychainAccess.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EA65EA81B5DD9EB00B18107 /* KeychainAccess.framework */; };
+		4EDEEE871B698E8C002582DE /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EDEEE861B698E8C002582DE /* DatabaseManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -144,6 +145,7 @@
 		4EA65E951B5DC7F300B18107 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		4EA65E971B5DCE6300B18107 /* ClientManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClientManager.swift; sourceTree = "<group>"; };
 		4EA65EA81B5DD9EB00B18107 /* KeychainAccess.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = KeychainAccess.framework; path = "../../KeychainAccess/Lib/build/Debug-iphoneos/KeychainAccess.framework"; sourceTree = "<group>"; };
+		4EDEEE861B698E8C002582DE /* DatabaseManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
 		60EA86A81CF4CE747F455060 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		C678D97103A9EF641508A19A /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -203,6 +205,7 @@
 				4E6C42141B5DB4DD009B22AF /* AppDelegate.swift */,
 				4EA65E691B5DBCCE00B18107 /* LoginViewController.swift */,
 				4EA65E971B5DCE6300B18107 /* ClientManager.swift */,
+				4EDEEE861B698E8C002582DE /* DatabaseManager.swift */,
 				4E6C42161B5DB4DD009B22AF /* ViewController.swift */,
 				4E6C421B1B5DB4DD009B22AF /* Images.xcassets */,
 				4E6C421D1B5DB4DD009B22AF /* LaunchScreen.xib */,
@@ -496,6 +499,7 @@
 				4EA65E571B5DBC7B00B18107 /* ImageLoader.swift in Sources */,
 				4EA65E981B5DCE6300B18107 /* ClientManager.swift in Sources */,
 				4EA65E5C1B5DBC7B00B18107 /* Misc.swift in Sources */,
+				4EDEEE871B698E8C002582DE /* DatabaseManager.swift in Sources */,
 				4EA65E511B5DBC7B00B18107 /* DesignableImageView.swift in Sources */,
 				4EA65E611B5DBC7B00B18107 /* SpringImageView.swift in Sources */,
 				4E6C42171B5DB4DD009B22AF /* ViewController.swift in Sources */,

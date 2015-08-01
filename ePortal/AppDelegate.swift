@@ -23,8 +23,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     if ClientManager.sharedInstance.isLoggedIn() {
       viewControllerId = Constants.mainTabBarVC
-      ClientManager.sharedInstance.resumeSessionWithCompletionHandler() { task in
+      
+      ClientManager.sharedInstance.resumeSessionWithCompletionHandler() {
+        task in
+        
         println("resumed in AppDelegate so skipping login page")
+        println("trying to login to database, fingers crossed")
+        
+        return DatabaseManager.sharedInstance.login()
+      }.continueWithBlock() {
+        task in
+        
+        println("back in AppDelegate after login attempt")
+        
         return nil
       }
     }

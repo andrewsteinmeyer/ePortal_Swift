@@ -10,6 +10,7 @@
 #define ePortal_ePortal_Bridging_Header_h
 
 #import <AWSCore/AWSCore.h>
+#import <AWSLambda/AWSLambda.h>
 
 #endif
 
