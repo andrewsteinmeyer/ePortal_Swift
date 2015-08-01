@@ -17,7 +17,21 @@ class ViewController: UIViewController {
 
   override func didReceiveMemoryWarning() {
     super.didReceiveMemoryWarning()
-    // Dispose of any resources that can be recreated.
+    // Dispose of any resources that can be recreated
+  }
+  
+  @IBAction func logoutUser(sender: AnyObject) {
+    if ClientManager.sharedInstance.isLoggedIn() {
+      ClientManager.sharedInstance.logoutWithCompletionHandler() {
+        task in
+        
+        let presentingViewController = UIApplication.sharedApplication().keyWindow?.rootViewController
+        let logInViewController = presentingViewController?.storyboard?.instantiateViewControllerWithIdentifier(Constants.loginVC) as? LoginViewController
+        presentingViewController?.presentViewController(logInViewController!, animated: true, completion: nil)
+        
+        return nil
+      }
+    }
   }
 
 

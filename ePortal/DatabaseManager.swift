@@ -29,6 +29,11 @@ final class DatabaseManager {
   }
   
   func login() -> AWSTask {
+    /*
+     use lambda to retrieve login token from Firebase
+     using the user's unique cognito identity
+     */
+    
     let params = [ "identity" : self.getIdentityId() ]
     
     return self.lambdaInvoker.invokeFunction("generateFirebaseToken", JSONObject: params).continueWithBlock() {

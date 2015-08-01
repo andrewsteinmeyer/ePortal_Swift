@@ -11,8 +11,8 @@ import TwitterKit
 import Fabric
 
 /*
-  ClientManager handles login details for the client using AWS Cognito 
-*/
+ ClientManager handles login details for the client using AWS Cognito
+ */
 
 final class ClientManager {
 
@@ -35,10 +35,14 @@ final class ClientManager {
   
   //MARK: Login Helpers
   
-  func initializeCredentials() -> AWSTask {
+  func initializeCredentials(logins: [NSObject: AnyObject]?) -> AWSTask {
     // Setup AWS Credentials
     self.credentialsProvider = AWSCognitoCredentialsProvider(regionType: Constants.CognitoRegionType,
                                                              identityPoolId: Constants.CognitoIdentityPoolId)
+    
+    if let logins = logins {
+      self.credentialsProvider.logins = logins
+    }
     
     let configuration = AWSServiceConfiguration(region: Constants.DefaultServiceRegionType,
                                                 credentialsProvider: self.credentialsProvider)
@@ -52,10 +56,11 @@ final class ClientManager {
     var task: AWSTask
     
     if (self.credentialsProvider == nil) {
-      task = self.initializeCredentials()
+      task = self.initializeCredentials(logins)
     }
     else {
       if (self.credentialsProvider.logins != nil) {
+        //should not get into this block until we add more login providers
         var merge = NSMutableDictionary(dictionary: self.credentialsProvider.logins)
         merge.addEntriesFromDictionary(logins!)
       
@@ -67,7 +72,9 @@ final class ClientManager {
         }
       }
       
-      //Force refresh of credentials to see if we need to merge identities
+      //Force refresh of credentials to see if we need to merge identities.
+      //User is initially unauthorized.  If they login with Twitter, the new authorized identity
+      //needs to be merged with the previous unauthorized identity to retain the cognito identity id.
       //Currently only supporting Twitter as login provider, but could add more later (Digits, Facebook, Amazon, etc)
       task = self.credentialsProvider.refresh()
     }
@@ -96,7 +103,7 @@ final class ClientManager {
       loginWithTwitter()
     }
     else if (self.credentialsProvider == nil) {
-      println("getting aws credentials")
+      println("no login info yet, just setting up aws credentials")
       self.completeLogin(nil)
     }
     
@@ -113,6 +120,10 @@ final class ClientManager {
     if (self.isLoggedInWithTwitter()) {
       self.logoutTwitter()
     }
+    
+    //TODO: Does wiping the credential Provider keychain reset the user's cognito id?
+    //      Or is it remembered when the user logs back in?
+    //      If it gets wiped, we don't want to clearKeyChain in wipeAll() function
     
     self.wipeAll()
     
@@ -142,6 +153,7 @@ final class ClientManager {
   func loginWithTwitter() {
     Twitter.sharedInstance().logInWithCompletion { session, error in
       if (session != nil) {
+        println("Signed in as \(session.userName)")
         self.completeTwitterLogin()
       }
       else {

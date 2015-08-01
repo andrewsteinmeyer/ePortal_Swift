@@ -17,9 +17,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
   func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
     
+    //setup login helpers
     initializeDependencies()
     
     let viewControllerId: String
+    
+    /*
+     Refresh credentials and proceed to TabBarController if logged in.
+     Otherwise, present loginViewController.
+    */
     
     if ClientManager.sharedInstance.isLoggedIn() {
       viewControllerId = Constants.mainTabBarVC
