@@ -21,6 +21,11 @@ class LoginViewController: UIViewController {
     
     setupLoginButton()
     
+    //resumeSession()
+  }
+  
+  override func viewWillAppear(animated: Bool) {
+    println("here loginViewController viewWillAppear")
     resumeSession()
   }
 
@@ -90,14 +95,18 @@ extension LoginViewController {
       task in
       
       if (task.error == nil) {
-        println("hooray logged in and back in LoginViewController")
-        self.performSegueWithIdentifier("ShowMainTabBarController", sender: nil)
+        dispatch_async(GlobalMainQueue) {
+          println("hooray logged in and back in LoginViewController")
+          self.performSegueWithIdentifier("ShowMainTabBarController", sender: nil)
+        }
       }
       else {
-        self.alertWithTitle("Error with Twitter session", message: "Sorry, could not login. Darn it")
-        
-        afterDelay(0.6) {
-          self.toggleLoginButton()
+        dispatch_async(GlobalMainQueue) {
+          self.alertWithTitle("Error with Twitter session", message: "Sorry, could not login. Darn it")
+          
+          afterDelay(0.6) {
+            self.toggleLoginButton()
+          }
         }
       }
       

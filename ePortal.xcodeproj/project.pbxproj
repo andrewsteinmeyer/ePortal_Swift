@@ -14,6 +14,7 @@
 		4E6C421C1B5DB4DD009B22AF /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4E6C421B1B5DB4DD009B22AF /* Images.xcassets */; };
 		4E6C421F1B5DB4DD009B22AF /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4E6C421D1B5DB4DD009B22AF /* LaunchScreen.xib */; };
 		4E6C422B1B5DB4DD009B22AF /* ePortalTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E6C422A1B5DB4DD009B22AF /* ePortalTests.swift */; };
+		4E9460381B6D3E610084C9C6 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E9460371B6D3E610084C9C6 /* SwiftyJSON.swift */; };
 		4EA65E4C1B5DBC7B00B18107 /* AsyncButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA65E2E1B5DBC7B00B18107 /* AsyncButton.swift */; };
 		4EA65E4D1B5DBC7B00B18107 /* AsyncImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA65E2F1B5DBC7B00B18107 /* AsyncImageView.swift */; };
 		4EA65E4E1B5DBC7B00B18107 /* AutoTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA65E301B5DBC7B00B18107 /* AutoTextView.swift */; };
@@ -92,6 +93,7 @@
 		4E6C42291B5DB4DD009B22AF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4E6C422A1B5DB4DD009B22AF /* ePortalTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ePortalTests.swift; sourceTree = "<group>"; };
 		4E6C42341B5DB7FE009B22AF /* ePortal-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ePortal-Bridging-Header.h"; sourceTree = "<group>"; };
+		4E9460371B6D3E610084C9C6 /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
 		4EA65E2E1B5DBC7B00B18107 /* AsyncButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AsyncButton.swift; sourceTree = "<group>"; };
 		4EA65E2F1B5DBC7B00B18107 /* AsyncImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AsyncImageView.swift; sourceTree = "<group>"; };
 		4EA65E301B5DBC7B00B18107 /* AutoTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutoTextView.swift; sourceTree = "<group>"; };
@@ -220,6 +222,7 @@
 			children = (
 				4EA65E6B1B5DBEAC00B18107 /* Fonts */,
 				4EA65E2D1B5DBC7B00B18107 /* Spring */,
+				4E9460371B6D3E610084C9C6 /* SwiftyJSON.swift */,
 				4E6C42131B5DB4DD009B22AF /* Info.plist */,
 				4EA65E951B5DC7F300B18107 /* Constants.swift */,
 				4EA65E931B5DC62100B18107 /* Utils.swift */,
@@ -528,6 +531,7 @@
 				4EA65E661B5DBC7B00B18107 /* TransitionManager.swift in Sources */,
 				4EA65E4F1B5DBC7B00B18107 /* BlurView.swift in Sources */,
 				4EA65E651B5DBC7B00B18107 /* SpringView.swift in Sources */,
+				4E9460381B6D3E610084C9C6 /* SwiftyJSON.swift in Sources */,
 				4EA65E671B5DBC7B00B18107 /* TransitionZoom.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -46,7 +46,14 @@ final class DatabaseManager {
         println("Exception: \(task.exception)")
       }
       if (task.result != nil) {
-        println("Result: \(task.result)")
+        //println("Result: \(task.result)")
+        
+        let json = JSON(task.result)
+        
+        if let token = json["token"].string {
+          println("Firebase token: \(token)")
+        }
+        
       }
       
       return task

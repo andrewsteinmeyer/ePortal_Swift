@@ -25,9 +25,15 @@ class ViewController: UIViewController {
       ClientManager.sharedInstance.logoutWithCompletionHandler() {
         task in
         
-        let presentingViewController = UIApplication.sharedApplication().keyWindow?.rootViewController
-        let logInViewController = presentingViewController?.storyboard?.instantiateViewControllerWithIdentifier(Constants.loginVC) as? LoginViewController
-        presentingViewController?.presentViewController(logInViewController!, animated: true, completion: nil)
+        dispatch_async(GlobalMainQueue) {
+          let presentingViewController = UIApplication.sharedApplication().keyWindow?.rootViewController
+          
+          if presentingViewController is LoginViewController {
+            
+          }
+          let logInViewController = presentingViewController?.storyboard?.instantiateViewControllerWithIdentifier(Constants.loginVC) as? LoginViewController
+          presentingViewController?.presentViewController(logInViewController!, animated: true, completion: nil)
+        }
         
         return nil
       }
