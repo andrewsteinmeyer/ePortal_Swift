@@ -39,6 +39,8 @@ final class DatabaseManager {
     return self.lambdaInvoker.invokeFunction("generateFirebaseToken", JSONObject: params).continueWithBlock() {
       task in
       
+      var token = ""
+      
       if (task.error != nil) {
         println("Error: \(task.error)")
       }
@@ -50,13 +52,14 @@ final class DatabaseManager {
         
         let json = JSON(task.result)
         
-        if let token = json["token"].string {
+        if let loginToken = json["token"].string {
+          token = loginToken
           println("Firebase token: \(token)")
         }
         
       }
       
-      return task
+      return token
     }
   }
   

@@ -83,7 +83,7 @@ final class ClientManager {
       task in
       
       if (task.error == nil) {
-        println("setup AWS credentials")
+        println("received AWS credentials")
         
         //TODO: Set Current Device Token stuff for Cognito sync
         println("Cognito id: \(task.result)")
@@ -95,7 +95,7 @@ final class ClientManager {
     
   }
   
-  func resumeSessionWithCompletionHandler(completionHandler: AWSContinuationBlock) -> AWSTask {
+  func resumeSessionWithCompletionHandler(completionHandler: AWSContinuationBlock) {
     self.completionHandler = completionHandler
     
     if ((self.keychain[Constants.TwitterProvider]) != nil) {
@@ -106,8 +106,6 @@ final class ClientManager {
       println("no login info yet, just setting up aws credentials")
       self.completeLogin(nil)
     }
-    
-    return AWSTask(result: nil)
   }
   
   func loginWithCompletionHandler(completionHandler: AWSContinuationBlock) {
@@ -131,6 +129,7 @@ final class ClientManager {
   }
   
   func wipeAll() {
+    println("wiping credentials")
     self.credentialsProvider.logins = nil
     self.credentialsProvider.clearKeychain()
   }

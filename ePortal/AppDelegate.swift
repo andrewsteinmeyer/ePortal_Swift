@@ -20,7 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     //setup login helpers
     initializeDependencies()
     
-    let viewControllerId: String
+    let navVC = self.window!.rootViewController as! UINavigationController
     
     /*
      Refresh credentials and proceed to TabBarController if logged in.
@@ -28,7 +28,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     */
     
     if ClientManager.sharedInstance.isLoggedIn() {
-      viewControllerId = Constants.mainTabBarVC
+      let mainTabVC = navVC.storyboard?.instantiateViewControllerWithIdentifier(Constants.mainTabBarVC) as! UIViewController
+      navVC.pushViewController(mainTabVC, animated: false)
       
       ClientManager.sharedInstance.resumeSessionWithCompletionHandler() {
         task in
@@ -36,20 +37,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         println("resumed in AppDelegate so skipping login page")
         println("trying to login to database, fingers crossed")
         
-        return DatabaseManager.sharedInstance.login()
-      }.continueWithBlock() {
-        task in
-        
-        println("back in AppDelegate after login attempt")
+        DatabaseManager.sharedInstance.login().continueWithBlock() {
+          task in
+          
+          println("back in AppDelegate after Database login attempt")
+          
+          return nil
+        }
         
         return nil
       }
     }
-    else {
-      viewControllerId = Constants.loginVC
-    }
-    
-    self.window!.rootViewController = self.window?.rootViewController?.storyboard?.instantiateViewControllerWithIdentifier(viewControllerId) as? UIViewController
     
     return true
   }

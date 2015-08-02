@@ -26,13 +26,11 @@ class ViewController: UIViewController {
         task in
         
         dispatch_async(GlobalMainQueue) {
-          let presentingViewController = UIApplication.sharedApplication().keyWindow?.rootViewController
+          println("completing logout")
+          let navVC = UIApplication.sharedApplication().keyWindow?.rootViewController as! UINavigationController
           
-          if presentingViewController is LoginViewController {
-            
-          }
-          let logInViewController = presentingViewController?.storyboard?.instantiateViewControllerWithIdentifier(Constants.loginVC) as? LoginViewController
-          presentingViewController?.presentViewController(logInViewController!, animated: true, completion: nil)
+          navVC.popToRootViewControllerAnimated(true)
+          
         }
         
         return nil

@@ -20,15 +20,8 @@ class LoginViewController: UIViewController {
     super.viewDidLoad()
     
     setupLoginButton()
-    
-    //resumeSession()
-  }
-  
-  override func viewWillAppear(animated: Bool) {
-    println("here loginViewController viewWillAppear")
     resumeSession()
   }
-
   
   func loginButtonPressedDown() {
     highlightBorder()
@@ -94,22 +87,36 @@ extension LoginViewController {
     ClientManager.sharedInstance.loginWithCompletionHandler() {
       task in
       
-      if (task.error == nil) {
-        dispatch_async(GlobalMainQueue) {
-          println("hooray logged in and back in LoginViewController")
-          self.performSegueWithIdentifier("ShowMainTabBarController", sender: nil)
-        }
-      }
-      else {
-        dispatch_async(GlobalMainQueue) {
-          self.alertWithTitle("Error with Twitter session", message: "Sorry, could not login. Darn it")
-          
-          afterDelay(0.6) {
-            self.toggleLoginButton()
+      DatabaseManager.sharedInstance.login().continueWithBlock() {
+        task in
+      
+        if (task.error == nil) {
+          dispatch_async(GlobalMainQueue) {
+            let navVC = self.navigationController
+            let mainTabVC = navVC!.storyboard?.instantiateViewControllerWithIdentifier(Constants.mainTabBarVC) as! UIViewController
+            
+            navVC!.pushViewController(mainTabVC, animated: true)
+            
+            afterDelay(0.6) {
+              self.toggleLoginButton()
+            }
+            
+            //we were using segue, but pushing now so that we can pop back to rootViewController
+            //self.performSegueWithIdentifier("ShowMainTabBarController", sender: nil)
           }
         }
+        else {
+          dispatch_async(GlobalMainQueue) {
+            self.alertWithTitle("Error loggin in with Twitter", message: "Sorry, could not login. Darn it")
+            
+            afterDelay(0.6) {
+              self.toggleLoginButton()
+            }
+          }
+        }
+        
+        return nil
       }
-      
       return nil
     }
   }
@@ -118,16 +125,17 @@ extension LoginViewController {
     ClientManager.sharedInstance.resumeSessionWithCompletionHandler() {
       task in
       
-      if (task.error == nil) {
-        println("back to Login controller we resumed the session")
+      dispatch_async(GlobalMainQueue) {
+        if (task.error == nil) {
+          println("back to Login controller, aws gave us the credentials")
+        }
+        else {
+          self.alertWithTitle("Error resuming AWS session", message: "Sorry, could not login. Darn it")
+        }
       }
-      else {
-        self.alertWithTitle("Error resuming AWS session", message: "Sorry, could not login. Darn it")
-      }
-      return nil
       
+      return nil
     }
-    
   }
   
 }
