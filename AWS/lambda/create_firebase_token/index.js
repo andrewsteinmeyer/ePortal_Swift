@@ -10,7 +10,7 @@ var FirebaseTokenGenerator = require('firebase-token-generator'),
 
 exports.handler = function(event, context) {
   //Try to generate Firebase token and login to database
-  console.log(event);
+  //console.log(event);
 
   async.waterfall([
     function generateFirebaseToken(next) {
@@ -27,7 +27,7 @@ exports.handler = function(event, context) {
     function loginToFirebase(token, next) {
       //attempt to login to firebase
       ref.authWithCustomToken(token, function(err, authData) {
-        console.log("Auth data son:", authData);
+        console.log("Auth data boy:", authData);
 
         if (err) {
           next(err);
@@ -37,16 +37,12 @@ exports.handler = function(event, context) {
       });
     }
   ], function (err, authData) {
-      var response = '';
-
       if (err) {
-        response = 'Could not login to Firebase with token provided due to error: ' + err;
+        context.fail(err);
       }
       else {
-        response = authData;
+        context.succeed(authData);
       }
-
-      context.succeed(response);
   });
 };
 
