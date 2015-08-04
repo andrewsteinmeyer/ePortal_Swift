@@ -19,6 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     //setup login helpers
     initializeDependencies()
+    customizeAppearance()
     
     let navVC = self.window!.rootViewController as! UINavigationController
     
@@ -54,6 +55,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   
   func initializeDependencies() {
     Fabric.with([Twitter()])
+  }
+  
+  func customizeAppearance() {
+    UIApplication.sharedApplication().setStatusBarStyle(UIStatusBarStyle.LightContent, animated: false)
+    
+    UINavigationBar.appearance().barTintColor = UIColor.themeColor()
+    UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
+    
+    //UITabBar.appearance().barTintColor = UIColor.blackColor()
+    UITabBar.appearance().tintColor = UIColor.themeColor()
   }
 
 
