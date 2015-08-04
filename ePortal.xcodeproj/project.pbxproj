@@ -9,13 +9,17 @@
 /* Begin PBXBuildFile section */
 		083F249E889F43CC25020607 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 184C457D8150E155C73992F1 /* libPods.a */; };
 		4E6C42151B5DB4DD009B22AF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E6C42141B5DB4DD009B22AF /* AppDelegate.swift */; };
-		4E6C42171B5DB4DD009B22AF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E6C42161B5DB4DD009B22AF /* ViewController.swift */; };
 		4E6C421A1B5DB4DD009B22AF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4E6C42181B5DB4DD009B22AF /* Main.storyboard */; };
 		4E6C421C1B5DB4DD009B22AF /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4E6C421B1B5DB4DD009B22AF /* Images.xcassets */; };
 		4E6C421F1B5DB4DD009B22AF /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4E6C421D1B5DB4DD009B22AF /* LaunchScreen.xib */; };
 		4E6C422B1B5DB4DD009B22AF /* ePortalTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E6C422A1B5DB4DD009B22AF /* ePortalTests.swift */; };
 		4E9460381B6D3E610084C9C6 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E9460371B6D3E610084C9C6 /* SwiftyJSON.swift */; };
 		4E9460421B7043D10084C9C6 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E9460411B7043D00084C9C6 /* Colors.swift */; };
+		4E9460461B704C9B0084C9C6 /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E9460451B704C9B0084C9C6 /* NavigationController.swift */; };
+		4E9460481B704EEC0084C9C6 /* DiscoverHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4E9460471B704EEC0084C9C6 /* DiscoverHeaderView.xib */; };
+		4E94604A1B704F080084C9C6 /* DiscoverViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4E9460491B704F080084C9C6 /* DiscoverViewCell.xib */; };
+		4E94604C1B704F230084C9C6 /* DiscoverViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E94604B1B704F230084C9C6 /* DiscoverViewCell.swift */; };
+		4E94604F1B704F670084C9C6 /* DiscoverCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E94604E1B704F670084C9C6 /* DiscoverCollectionViewController.swift */; };
 		4EA65E4C1B5DBC7B00B18107 /* AsyncButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA65E2E1B5DBC7B00B18107 /* AsyncButton.swift */; };
 		4EA65E4D1B5DBC7B00B18107 /* AsyncImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA65E2F1B5DBC7B00B18107 /* AsyncImageView.swift */; };
 		4EA65E4E1B5DBC7B00B18107 /* AutoTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA65E301B5DBC7B00B18107 /* AutoTextView.swift */; };
@@ -86,7 +90,6 @@
 		4E6C420F1B5DB4DD009B22AF /* ePortal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ePortal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E6C42131B5DB4DD009B22AF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4E6C42141B5DB4DD009B22AF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		4E6C42161B5DB4DD009B22AF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		4E6C42191B5DB4DD009B22AF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4E6C421B1B5DB4DD009B22AF /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		4E6C421E1B5DB4DD009B22AF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -96,6 +99,11 @@
 		4E6C42341B5DB7FE009B22AF /* ePortal-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ePortal-Bridging-Header.h"; sourceTree = "<group>"; };
 		4E9460371B6D3E610084C9C6 /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
 		4E9460411B7043D00084C9C6 /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		4E9460451B704C9B0084C9C6 /* NavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
+		4E9460471B704EEC0084C9C6 /* DiscoverHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DiscoverHeaderView.xib; sourceTree = "<group>"; };
+		4E9460491B704F080084C9C6 /* DiscoverViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DiscoverViewCell.xib; sourceTree = "<group>"; };
+		4E94604B1B704F230084C9C6 /* DiscoverViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscoverViewCell.swift; sourceTree = "<group>"; };
+		4E94604E1B704F670084C9C6 /* DiscoverCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscoverCollectionViewController.swift; sourceTree = "<group>"; };
 		4EA65E2E1B5DBC7B00B18107 /* AsyncButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AsyncButton.swift; sourceTree = "<group>"; };
 		4EA65E2F1B5DBC7B00B18107 /* AsyncImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AsyncImageView.swift; sourceTree = "<group>"; };
 		4EA65E301B5DBC7B00B18107 /* AutoTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutoTextView.swift; sourceTree = "<group>"; };
@@ -208,9 +216,12 @@
 			children = (
 				4E6C42141B5DB4DD009B22AF /* AppDelegate.swift */,
 				4E94603F1B7042B20084C9C6 /* API */,
+				4E94604D1B704F280084C9C6 /* View */,
 				4E9460401B7042C20084C9C6 /* Controller */,
 				4E6C421B1B5DB4DD009B22AF /* Images.xcassets */,
 				4E6C421D1B5DB4DD009B22AF /* LaunchScreen.xib */,
+				4E9460491B704F080084C9C6 /* DiscoverViewCell.xib */,
+				4E9460471B704EEC0084C9C6 /* DiscoverHeaderView.xib */,
 				4EA65E921B5DC16600B18107 /* Storyboard */,
 				4E6C42121B5DB4DD009B22AF /* Supporting Files */,
 			);
@@ -262,9 +273,18 @@
 			isa = PBXGroup;
 			children = (
 				4EA65E691B5DBCCE00B18107 /* LoginViewController.swift */,
-				4E6C42161B5DB4DD009B22AF /* ViewController.swift */,
+				4E94604E1B704F670084C9C6 /* DiscoverCollectionViewController.swift */,
+				4E9460451B704C9B0084C9C6 /* NavigationController.swift */,
 			);
 			name = Controller;
+			sourceTree = "<group>";
+		};
+		4E94604D1B704F280084C9C6 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				4E94604B1B704F230084C9C6 /* DiscoverViewCell.swift */,
+			);
+			name = View;
 			sourceTree = "<group>";
 		};
 		4EA65E2D1B5DBC7B00B18107 /* Spring */ = {
@@ -448,6 +468,8 @@
 				4EA65E8E1B5DBEAC00B18107 /* Lato-Thin.ttf in Resources */,
 				4EA65E891B5DBEAC00B18107 /* Lato-Medium.ttf in Resources */,
 				4EA65E8F1B5DBEAC00B18107 /* Lato-ThinItalic.ttf in Resources */,
+				4E94604A1B704F080084C9C6 /* DiscoverViewCell.xib in Resources */,
+				4E9460481B704EEC0084C9C6 /* DiscoverHeaderView.xib in Resources */,
 				4EA65E821B5DBEAC00B18107 /* Lato-Hairline.ttf in Resources */,
 				4EA65E7E1B5DBEAC00B18107 /* Lato-Black.ttf in Resources */,
 				4EA65E5B1B5DBC7B00B18107 /* LoadingView.xib in Resources */,
@@ -521,17 +543,18 @@
 				4E9460421B7043D10084C9C6 /* Colors.swift in Sources */,
 				4EA65E571B5DBC7B00B18107 /* ImageLoader.swift in Sources */,
 				4EA65E981B5DCE6300B18107 /* ClientManager.swift in Sources */,
+				4E94604F1B704F670084C9C6 /* DiscoverCollectionViewController.swift in Sources */,
 				4EA65E5C1B5DBC7B00B18107 /* Misc.swift in Sources */,
 				4EDEEE871B698E8C002582DE /* DatabaseManager.swift in Sources */,
 				4EA65E511B5DBC7B00B18107 /* DesignableImageView.swift in Sources */,
 				4EA65E611B5DBC7B00B18107 /* SpringImageView.swift in Sources */,
-				4E6C42171B5DB4DD009B22AF /* ViewController.swift in Sources */,
 				4EA65E5D1B5DBC7B00B18107 /* SoundPlayer.swift in Sources */,
 				4EA65E961B5DC7F300B18107 /* Constants.swift in Sources */,
 				4EA65E641B5DBC7B00B18107 /* SpringTextView.swift in Sources */,
 				4E6C42151B5DB4DD009B22AF /* AppDelegate.swift in Sources */,
 				4EA65E561B5DBC7B00B18107 /* DesignableView.swift in Sources */,
 				4EA65E5F1B5DBC7B00B18107 /* SpringAnimation.swift in Sources */,
+				4E94604C1B704F230084C9C6 /* DiscoverViewCell.swift in Sources */,
 				4EA65E5E1B5DBC7B00B18107 /* Spring.swift in Sources */,
 				4EA65E5A1B5DBC7B00B18107 /* LoadingView.swift in Sources */,
 				4EA65E631B5DBC7B00B18107 /* SpringTextField.swift in Sources */,
@@ -541,6 +564,7 @@
 				4EA65E591B5DBC7B00B18107 /* KeyboardLayoutConstraint.swift in Sources */,
 				4EA65E6A1B5DBCCE00B18107 /* LoginViewController.swift in Sources */,
 				4EA65E601B5DBC7B00B18107 /* SpringButton.swift in Sources */,
+				4E9460461B704C9B0084C9C6 /* NavigationController.swift in Sources */,
 				4EA65E4D1B5DBC7B00B18107 /* AsyncImageView.swift in Sources */,
 				4EA65E941B5DC62100B18107 /* Utils.swift in Sources */,
 				4EA65E531B5DBC7B00B18107 /* DesignableTabBarController.swift in Sources */,

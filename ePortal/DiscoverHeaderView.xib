@@ -119,7 +119,7 @@
                                 <color key="textColor" red="0.89803921568627454" green="0.88627450980392153" blue="0.8901960784313725" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fuj-Bt-Ds8" customClass="DesignableButton" customModule="DetailPage" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fuj-Bt-Ds8" customClass="DesignableButton" customModule="ePortal" customModuleProvider="target">
                                 <rect key="frame" x="316" y="152" width="40" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="40" id="53m-zM-Tzo"/>
@@ -187,7 +187,7 @@
                             <constraint firstAttribute="trailing" secondItem="OcZ-Re-YR3" secondAttribute="trailing" id="s8w-r7-6Mh"/>
                         </constraints>
                     </view>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Blue Denim Style" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F4D-Qn-eXg">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Blue Denim Style" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F4D-Qn-eXg">
                         <rect key="frame" x="30" y="44" width="315" height="41"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="315" id="TsL-VO-YgY"/>

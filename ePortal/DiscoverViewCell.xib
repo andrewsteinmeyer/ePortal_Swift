@@ -28,7 +28,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="375" height="255"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ioE-2C-gve" customClass="DesignableView" customModule="DetailPage" customModuleProvider="target">
+                    <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ioE-2C-gve" customClass="DesignableView" customModule="ePortal" customModuleProvider="target">
                         <rect key="frame" x="8" y="8" width="359" height="247"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Classic Biker Jacket" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KtL-R7-N6a">
@@ -50,7 +50,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="359" height="174"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.14999999999999999" colorSpace="calibratedRGB"/>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9dp-tK-g9f" customClass="DesignableButton" customModule="DetailPage" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9dp-tK-g9f" customClass="DesignableButton" customModule="ePortal" customModuleProvider="target">
                                 <rect key="frame" x="297" y="180" width="40" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="40" id="ky8-Yj-Ub0"/>

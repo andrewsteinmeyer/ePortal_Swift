@@ -60,8 +60,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   func customizeAppearance() {
     UIApplication.sharedApplication().setStatusBarStyle(UIStatusBarStyle.LightContent, animated: false)
     
-    UINavigationBar.appearance().barTintColor = UIColor.themeColor()
-    UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
+    //UINavigationBar.appearance().barTintColor = UIColor.themeColor()
+    //UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
     
     //UITabBar.appearance().barTintColor = UIColor.blackColor()
     UITabBar.appearance().tintColor = UIColor.themeColor()

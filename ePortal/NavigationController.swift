@@ -1,6 +1,6 @@
 //
 //  NavigationController.swift
-//  DetailPage
+//  ePortal
 //
 //  Created by Andrew Steinmeyer on 6/16/15.
 //  Copyright (c) 2015 Andrew Steinmeyer. All rights reserved.

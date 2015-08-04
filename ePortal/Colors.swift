@@ -40,8 +40,8 @@ extension UIColor {
   
   class func themeColor() -> UIColor {
     //return rgba(227, green: 144, blue: 101, alpha: 1)
-    //return rgba(249, green: 141, blue: 50, alpha: 1)
-    return rgba(240, green: 136, blue: 49, alpha: 1)
+    return rgba(249, green: 141, blue: 50, alpha: 1)
+    //return rgba(240, green: 136, blue: 49, alpha: 1)
   }
   
   class func thinbuttonColor() -> UIColor {
