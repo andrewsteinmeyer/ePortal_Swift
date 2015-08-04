@@ -6,6 +6,7 @@
 //  Copyright (c) 2015 Andrew Steinmeyer. All rights reserved.
 //
 
+import Firebase
 
 /*
 DatabaseManager handles calls out to database
