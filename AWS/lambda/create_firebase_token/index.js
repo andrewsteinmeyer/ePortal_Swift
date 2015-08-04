@@ -27,7 +27,7 @@ exports.handler = function(event, context) {
     function loginToFirebase(token, next) {
       //attempt to login to firebase
       ref.authWithCustomToken(token, function(err, authData) {
-        console.log("Auth data boy:", authData);
+        //console.log("Auth data:", authData);
 
         if (err) {
           next(err);
