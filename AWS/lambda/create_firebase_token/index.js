@@ -1,5 +1,4 @@
 require('dotenv').load()
-var async = require('async');
 
 var Firebase = require('firebase'),
     ref = new Firebase(process.env.FIREBASE_AUTH_URL);
@@ -9,40 +8,16 @@ var FirebaseTokenGenerator = require('firebase-token-generator'),
 
 
 exports.handler = function(event, context) {
-  //Try to generate Firebase token and login to database
-  //console.log(event);
+  //Try to generate Firebase token
+  console.log(event);
 
-  async.waterfall([
-    function generateFirebaseToken(next) {
-      //generate token
-      var token = tokenGenerator.createToken({uid: event.identity});
+  var token = tokenGenerator.createToken({uid: event.identity});
 
-      if (token) {
-        next(null, token);
-      }
-      else {
-        next('Could not retrieve Firebase token');
-      }
-    },
-    function loginToFirebase(token, next) {
-      //attempt to login to firebase
-      ref.authWithCustomToken(token, function(err, authData) {
-        //console.log("Auth data:", authData);
-
-        if (err) {
-          next(err);
-        } else {
-          next(null, authData);
-        }
-      });
-    }
-  ], function (err, authData) {
-      if (err) {
-        context.fail(err);
-      }
-      else {
-        context.succeed(authData);
-      }
-  });
+  if (token) {
+    context.succeed(token);
+    console.log("token: ", token);
+  } else {
+    context.fail()
+  }
 };
 

@@ -1,7 +1,7 @@
 {
-  "name": "opentok-lambda",
+  "name": "firebase-token-lambda",
   "version": "0.0.1",
-  "description": "Initial lambda functions for ePortal",
+  "description": "Lambda function to request Firebase token for ePortal",
   "main": "index.js",
   "scripts": {
     "test": "mocha test/*test.js",
@@ -10,10 +10,9 @@
   "author": "Andrew Steinmeyer <jandrewsteinmeyer@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "async": "*",
-    "dotenv": "*",
     "firebase-token-generator": "~2.0.0",
-    "firebase": "~2.2.7"
+    "firebase": "~2.2.7",
+    "dotenv": "~1.2.0"
   },
   "devDependencies": {
     "run-sequence": "^1.0.2",
