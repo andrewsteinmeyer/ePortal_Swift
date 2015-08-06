@@ -87,7 +87,7 @@ extension LoginViewController {
     ClientManager.sharedInstance.loginWithCompletionHandler() {
       task in
       
-      DatabaseManager.sharedInstance.login().continueWithBlock() {
+      DatabaseManager.sharedInstance.loginWithCompletionHandler() {
         task in
       
         if (task.error == nil) {

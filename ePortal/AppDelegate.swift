@@ -38,9 +38,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         println("resumed in AppDelegate so skipping login page")
         println("trying to login to database, fingers crossed")
         
-        DatabaseManager.sharedInstance.login().continueWithBlock() {
+        DatabaseManager.sharedInstance.loginWithCompletionHandler() {
           task in
           
+          println("Tasky: \(task.result)")
           println("back in AppDelegate after Database login attempt")
           
           return nil

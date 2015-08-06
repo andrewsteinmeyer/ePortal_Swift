@@ -13,6 +13,9 @@ struct Constants {
   static let DefaultServiceRegionType = AWSRegionType.USEast1
   static let CognitoIdentityPoolId = "us-east-1:e40dbc7f-9b3c-4535-9145-52e5e797dcee"
   
+  // Firebase Configuration
+  static let FirebaseRootUrl = "https://eportal.firebaseio.com"
+  
   // NSUserDefault Keys
   static let DeviceTokenKey = "DeviceToken"
   static let CognitoDeviceTokenKey = "CognitoDeviceTokenKey"

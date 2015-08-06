@@ -15,11 +15,13 @@ DatabaseManager handles calls out to database
 final class DatabaseManager {
   
   private var lambdaInvoker: AWSLambdaInvoker!
+  private var firefeed: Firefeed!
   
   //MARK: Lifecycle
   
   private init() {
-     lambdaInvoker = AWSLambdaInvoker.defaultLambdaInvoker()
+    self.lambdaInvoker = AWSLambdaInvoker.defaultLambdaInvoker()
+    self.firefeed = Firefeed(rootUrl: Constants.FirebaseRootUrl)
   }
   
   class var sharedInstance: DatabaseManager {
@@ -29,43 +31,27 @@ final class DatabaseManager {
     return SingletonWrapper.singleton
   }
   
-  func login() -> AWSTask {
-    /*
-     use lambda to retrieve login token from Firebase
-     using the user's unique cognito identity
-     */
-    
-    let params = [ "identity" : self.getIdentityId() ]
-    
-    return self.lambdaInvoker.invokeFunction("generateFirebaseToken", JSONObject: params).continueWithBlock() {
-      task in
-      
-      var token = ""
-      
-      if (task.error != nil) {
-        println("Error: \(task.error)")
-      }
-      if (task.exception != nil) {
-        println("Exception: \(task.exception)")
-      }
-      if (task.result != nil) {
-        println("Result: \(task.result)")
-        
-        let json = JSON(task.result)
-        
-        if let loginToken = json["token"].string {
-          token = loginToken
-          println("Firebase token: \(token)")
-        }
-        
-      }
-      
-      return token
-    }
-  }
-  
-    
   func getIdentityId() -> String {
     return ClientManager.sharedInstance.getIdentityId()
   }
+  
+  func generateFirebaseToken() -> AWSTask {
+    /*
+    use lambda to retrieve a token from Firebase tied to the user's unique cognito identity
+    */
+    let params = [ "identity" : self.getIdentityId() ]
+    
+    return self.lambdaInvoker.invokeFunction("generateFirebaseToken", JSONObject: params)
+  }
+  
+  func loginWithCompletionHandler(completionHandler: AWSContinuationBlock) {
+    self.generateFirebaseToken().continueWithBlock() {
+      task in
+      
+      let token = task.result as! String
+      
+      return self.firefeed.loginWithToken(token)
+    }.continueWithBlock(completionHandler)
+  }
+
 }
