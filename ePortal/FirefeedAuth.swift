@@ -6,23 +6,6 @@
 //  Copyright (c) 2015 Andrew Steinmeyer. All rights reserved.
 //
 
-/*
-
-- (void) onAuthStatusError:(NSError *)error user:(FAuthData *)user {
-  if (user) {
-    _user = user;
-    NSLog(@"user %@", user);
-  } else {
-    _user = nil;
-  }
-  
-  for (NSNumber* handle in _blocks) {
-    // tell everyone who's listening
-    ffbt_void_nserror_user block = [_blocks objectForKey:handle];
-    block(error, user);
-  }
-}
-*/
 
 class FirefeedAuthData {
   private var _blocks: [AnyObject]
@@ -51,7 +34,12 @@ class FirefeedAuthData {
         }
       }
     }
-    
+  }
+  
+  deinit {
+    if let authHandle = _authHandle {
+      _ref.removeAuthEventObserverWithHandle(authHandle)
+    }
   }
   
   func onAuthStatusError(#error: NSError?, user: FAuthData?) {
@@ -74,6 +62,7 @@ class FirefeedAuthData {
     _ref.authWithCustomToken(self._token) {
       err, authData in
       
+      // update the auth state
       self.onAuthStatusError(error: err, user: authData)
       
       if (err != nil) {
@@ -122,19 +111,4 @@ final class FirefeedAuth {
     
     return authData.login()
   }
-  
-  /*
-  - (void) loginRef:(Firebase *)ref toFacebookAppWithId:(NSString *)appId {
-  
-  NSString* firebaseId = ref.root.description;
-  
-  // Pass to the FirefeedAuthData object, which manages multiple auth requests against the same Firebase
-  FirefeedAuthData* authData = [self.firebases objectForKey:firebaseId];
-  if (!authData) {
-  authData = [[FirefeedAuthData alloc] initWithRef:ref.root];
-  [self.firebases setObject:authData forKey:firebaseId];
-  }
-  [authData loginToAppWithId:appId];
-  }
-  */
 }

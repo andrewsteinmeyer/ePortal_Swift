@@ -178,4 +178,8 @@ final class ClientManager {
     }
   }
   
+  func initializeDependencies() {
+    Fabric.with([Twitter()])
+  }
+  
 }

@@ -55,7 +55,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   }
   
   func initializeDependencies() {
-    Fabric.with([Twitter()])
+    ClientManager.sharedInstance.initializeDependencies()
   }
   
   func customizeAppearance() {
