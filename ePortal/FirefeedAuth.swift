@@ -69,12 +69,72 @@ class FirefeedAuthData {
         task.setError(err)
       }
       else {
+        self.populateSearchIndicesForUser(authData)
         task.setResult(authData)
+        
       }
     }
     
     return task.task
   }
+  
+  func populateSearchIndicesForUser(user: FAuthData) {
+    /*
+     For each user, we list them in the search index twice. Once by first name and once by last name.
+     We include the id at the end to guarantee uniqueness.
+    */
+    
+    let firstNameRef = _ref.root.childByAppendingPath("search/firstName")
+    let lastNameRef = _ref.root.childByAppendingPath("search/lastName")
+    
+    let firstName = getFirstName()
+    let lastName = getLastName()
+    let firstNameKey = String(format: "%@_%@_%@", firstName!, lastName!, user.uid).lowercaseString
+    let lastNameKey = String(format: "%@_%@_%@", lastName!, firstName!, user.uid).lowercaseString
+    
+    println("firstname: \(firstName)")
+    println("lastname: \(lastName)")
+    
+    firstNameRef.childByAppendingPath(firstNameKey).setValue(user.uid)
+    lastNameRef.childByAppendingPath(lastNameKey).setValue(user.uid)
+  }
+  
+  func getFirstName() -> String? {
+    if let fullName = ClientManager.sharedInstance.getUserName() {
+      let fullNameArr = fullName.componentsSeparatedByString(" ")
+      let firstName: String = fullNameArr[0]
+      return firstName
+    }
+    
+    return nil
+  }
+
+  func getLastName() -> String? {
+    if let fullName = ClientManager.sharedInstance.getUserName() {
+      let fullNameArr = fullName.componentsSeparatedByString(" ")
+      let lastName: String? = fullNameArr[1]
+      return lastName
+    }
+    
+    return nil
+  }
+  
+  /*
+  
+  - (void) populateSearchIndicesForUser:(FAuthData *)user {
+  // For each user, we list them in the search index twice. Once by first name and once by last name. We include the id at the end to guarantee uniqueness
+  Firebase* firstNameRef = [_ref.root childByAppendingPath:@"search/firstName"];
+  Firebase* lastNameRef = [_ref.root childByAppendingPath:@"search/lastName"];
+  
+  NSString* firstName = [user.providerData objectForKey:@"first_name"];
+  NSString* lastName = [user.providerData objectForKey:@"last_name"];
+  NSString* firstNameKey = [[NSString stringWithFormat:@"%@_%@_%@", firstName, lastName, user.uid] lowercaseString];
+  NSString* lastNameKey = [[NSString stringWithFormat:@"%@_%@_%@", lastName, firstName, user.uid] lowercaseString];
+  
+  [[firstNameRef childByAppendingPath:firstNameKey] setValue:user.uid];
+  [[lastNameRef childByAppendingPath:lastNameKey] setValue:user.uid];
+  }
+  */
   
 }
 

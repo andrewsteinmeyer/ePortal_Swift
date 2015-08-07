@@ -19,11 +19,13 @@ final class ClientManager {
   private var credentialsProvider: AWSCognitoCredentialsProvider!
   private var completionHandler: AWSContinuationBlock!
   private var keychain: Keychain!
+  private var twitterUserData: TWTRUser?
 
   //MARK: Lifecycle
 
   private init() {
     keychain = Keychain(service: String(format: "%@.%@", NSBundle.mainBundle().bundleIdentifier!, "ClientManager"))
+    twitterUserData = nil
   }
 
   class var sharedInstance: ClientManager {
@@ -85,7 +87,7 @@ final class ClientManager {
       if (task.error == nil) {
         println("received AWS credentials")
         
-        //TODO: Set Current Device Token stuff for Cognito sync
+        //TODO: Set Current Device Token stuff for Cognito sync, see CognitoSyncDemo
         println("Cognito id: \(task.result)")
         
       }
@@ -141,6 +143,10 @@ final class ClientManager {
   func getIdentityId() -> String {
     return self.credentialsProvider.identityId
   }
+  
+  func getUserName() -> String? {
+    return self.getTwitterUserName()
+  }
 
   //MARK: Twitter
   
@@ -156,7 +162,7 @@ final class ClientManager {
           Twitter.sharedInstance().APIClient.loadUserWithID(sessionId) { user, error in
             if (user != nil) {
               println("Twitter user: \(user!.name)")
-              self.completeTwitterLogin()
+              self.completeTwitterLogin(user!)
             }
             else {
               println("error requesting user data with Twitter session id: \(error?.localizedDescription)")
@@ -170,7 +176,8 @@ final class ClientManager {
     }
   }
   
-  func completeTwitterLogin() {
+  func completeTwitterLogin(user: TWTRUser) {
+    self.twitterUserData = user
     self.keychain[Constants.TwitterProvider] = "YES"
     self.completeLogin( ["api.twitter.com": self.loginForTwitterSession( Twitter.sharedInstance().session() )])
     
@@ -184,8 +191,16 @@ final class ClientManager {
     if (Twitter.sharedInstance().session() != nil) {
       Twitter.sharedInstance().logOut()
       self.keychain[Constants.TwitterProvider] = nil
+      self.twitterUserData = nil
     }
   }
+  
+  func getTwitterUserName() -> String? {
+    return self.twitterUserData?.name
+  }
+  
+  
+  //MARK: Initialization
   
   func initializeDependencies() {
     Fabric.with([Twitter()])
