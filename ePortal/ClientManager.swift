@@ -12,7 +12,7 @@ import Fabric
 
 /*
  ClientManager handles login details for the client using AWS Cognito
- */
+*/
 
 final class ClientManager {
 
@@ -152,8 +152,17 @@ final class ClientManager {
   func loginWithTwitter() {
     Twitter.sharedInstance().logInWithCompletion { session, error in
       if (session != nil) {
-        println("Signed in as \(session.userName)")
-        self.completeTwitterLogin()
+        if let sessionId = session.userID {
+          Twitter.sharedInstance().APIClient.loadUserWithID(sessionId) { user, error in
+            if (user != nil) {
+              println("Twitter user: \(user!.name)")
+              self.completeTwitterLogin()
+            }
+            else {
+              println("error requesting user data with Twitter session id: \(error?.localizedDescription)")
+            }
+          }
+        }
       }
       else {
         println("error logging in with Twitter: \(error.localizedDescription)")

@@ -41,7 +41,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         DatabaseManager.sharedInstance.loginWithCompletionHandler() {
           task in
           
-          println("Tasky: \(task.result)")
+          //println("Task result: \(task.result)")
           println("back in AppDelegate after Database login attempt")
           
           return nil
