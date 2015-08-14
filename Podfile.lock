@@ -16,9 +16,9 @@ DEPENDENCIES:
   - AWSCognito (= 2.2.2)
   - AWSCore (= 2.2.2)
   - AWSLambda (= 2.2.2)
-  - CSStickyHeaderFlowLayout
+  - CSStickyHeaderFlowLayout (= 0.2.8)
   - Fabric (= 1.2.8)
-  - Firebase (>= 2.3.3)
+  - Firebase (= 2.3.3)
   - TwitterCore (= 1.8.1)
   - TwitterKit (= 1.8.1)
 

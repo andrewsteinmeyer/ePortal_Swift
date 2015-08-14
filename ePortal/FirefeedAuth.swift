@@ -6,21 +6,22 @@
 //  Copyright (c) 2015 Andrew Steinmeyer. All rights reserved.
 //
 
+typealias FAuthCompletionBlock = (error: NSError?, user: FAuthData?) -> Void
 
 class FirefeedAuthData {
-  private var _blocks: [AnyObject]
+  private var _blocks: [String: FAuthCompletionBlock]
   private var _ref: Firebase
-  private var _luid: Int
+  private var _luid: UInt
   private var _user: FAuthData?
   private var _authHandle: UInt?
-  private var _token: String?
+  private var _providerData: [String:String]?
   
-  init(ref: Firebase, authToken token: String) {
+  init(ref: Firebase) {
+    // Start at 1 so it works with if (luid) {...}
     _luid = 1
     _ref = ref
-    _token = token
     _user = nil
-    _blocks = []
+    _blocks = [:]
     
     // Keep an eye on what Firebase says that our authentication is
     _authHandle = _ref.observeAuthEventWithBlock() { [weak self]
@@ -30,7 +31,6 @@ class FirefeedAuthData {
         // This is the new style, but there doesn't appear to be any way to tell which way the user is going, online or offline?
         if ( (user == nil) && (strongSelf._user != nil) ) {
           strongSelf.onAuthStatusError(error: nil, user: nil)
-          
         }
       }
     }
@@ -42,27 +42,17 @@ class FirefeedAuthData {
     }
   }
   
-  func onAuthStatusError(#error: NSError?, user: FAuthData?) {
-    if (user != nil) {
-      _user = user
-      println("user: \(user?.uid)")
-    }
-    else {
-      _user = nil
+  func logInWithToken(token: String, providerData: [String:String]?) -> AWSTask {
+    if let data = providerData {
+      self._providerData = data
     }
     
-    for handle in _blocks {
-      //TODO
-    }
-  }
-  
-  func login() -> AWSTask {
     var task = AWSTaskCompletionSource()
     
-    _ref.authWithCustomToken(self._token) {
+    _ref.authWithCustomToken(token) {
       err, authData in
       
-      // update the auth state
+      // update the user's authData
       self.onAuthStatusError(error: err, user: authData)
       
       if (err != nil) {
@@ -80,61 +70,72 @@ class FirefeedAuthData {
   
   func populateSearchIndicesForUser(user: FAuthData) {
     /*
-     For each user, we list them in the search index twice. Once by first name and once by last name.
-     We include the id at the end to guarantee uniqueness.
+    For each user, we list them in the search index twice. Once by first name and once by last name.
+    We include the id at the end to guarantee uniqueness.
     */
-    
     let firstNameRef = _ref.root.childByAppendingPath("search/firstName")
     let lastNameRef = _ref.root.childByAppendingPath("search/lastName")
     
-    let firstName = getFirstName()
-    let lastName = getLastName()
+    let firstName = self._providerData?["firstName"]
+    let lastName = self._providerData?["lastName"]
     let firstNameKey = String(format: "%@_%@_%@", firstName!, lastName!, user.uid).lowercaseString
     let lastNameKey = String(format: "%@_%@_%@", lastName!, firstName!, user.uid).lowercaseString
-    
-    println("firstname: \(firstName)")
-    println("lastname: \(lastName)")
     
     firstNameRef.childByAppendingPath(firstNameKey).setValue(user.uid)
     lastNameRef.childByAppendingPath(lastNameKey).setValue(user.uid)
   }
   
-  func getFirstName() -> String? {
-    if let fullName = ClientManager.sharedInstance.getUserName() {
-      let fullNameArr = fullName.componentsSeparatedByString(" ")
-      let firstName: String = fullNameArr[0]
-      return firstName
+  // Assumes block is already on the heap
+  func checkAuthStatus(block: FAuthCompletionBlock) -> UInt {
+    var handle = _luid++
+    let luid = String(handle)
+    
+    _blocks[luid] = block
+    
+    if (_user != nil) {
+      // we already have a user logged in
+      // force async to be consistent
+      
+      var callback = { [weak self]
+        () -> Void in
+        if let strongSelf = self {
+          block(error: nil, user: strongSelf._user!)
+        }
+        return
+      }
+      
+      dispatch_async(GlobalMainQueue) {
+        callback()
+      }
+    } else if (_blocks.count == 1) {
+      // This is the first block for this firebase, kick off the login process
+      _ref.observeAuthEventWithBlock() {
+        user in
+        
+        if (user != nil) {
+          self.onAuthStatusError(error: nil, user: user)
+        } else {
+          self.onAuthStatusError(error: nil, user: nil)
+        }
+      }
+    }
+    return handle
+  }
+  
+  func onAuthStatusError(#error: NSError?, user: FAuthData?) {
+    if (user != nil) {
+      _user = user
+    }
+    else {
+      _user = nil
     }
     
-    return nil
-  }
-
-  func getLastName() -> String? {
-    if let fullName = ClientManager.sharedInstance.getUserName() {
-      let fullNameArr = fullName.componentsSeparatedByString(" ")
-      let lastName: String? = fullNameArr[1]
-      return lastName
+    for handle in _blocks.keys {
+      // tell everyone who's listening
+      let block = _blocks[handle]
+      block!(error: error, user: user)
     }
-    
-    return nil
   }
-  
-  /*
-  
-  - (void) populateSearchIndicesForUser:(FAuthData *)user {
-  // For each user, we list them in the search index twice. Once by first name and once by last name. We include the id at the end to guarantee uniqueness
-  Firebase* firstNameRef = [_ref.root childByAppendingPath:@"search/firstName"];
-  Firebase* lastNameRef = [_ref.root childByAppendingPath:@"search/lastName"];
-  
-  NSString* firstName = [user.providerData objectForKey:@"first_name"];
-  NSString* lastName = [user.providerData objectForKey:@"last_name"];
-  NSString* firstNameKey = [[NSString stringWithFormat:@"%@_%@_%@", firstName, lastName, user.uid] lowercaseString];
-  NSString* lastNameKey = [[NSString stringWithFormat:@"%@_%@_%@", lastName, firstName, user.uid] lowercaseString];
-  
-  [[firstNameRef childByAppendingPath:firstNameKey] setValue:user.uid];
-  [[lastNameRef childByAppendingPath:lastNameKey] setValue:user.uid];
-  }
-  */
   
 }
 
@@ -147,6 +148,36 @@ final class FirefeedAuth {
     self.firebases = [String: FirefeedAuthData]()
   }
   
+  func checkAuthForRef(ref: Firebase, withBlock block: FAuthCompletionBlock) -> UInt {
+    let firebaseId = ref.root.description
+    
+    // Pass to the FirefeedAuthData object, which manages multiple auth requests against the same Firebase
+    var authData: FirefeedAuthData! = self.firebases[firebaseId]
+    
+    if (authData == nil) {
+      authData = FirefeedAuthData(ref: ref)
+      self.firebases[firebaseId] = authData
+    }
+    
+    return authData.checkAuthStatus(block)
+  }
+  
+  func loginRef(ref: Firebase, withToken token: String, providerData data: [String:String]?) -> AWSTask {
+    let firebaseId = ref.root.description
+    
+    // Pass to the FirefeedAuthData object, which manages multiple auth requests against the same Firebase
+    var authData = self.firebases[firebaseId] as FirefeedAuthData!
+    
+    if (authData == nil) {
+      authData = FirefeedAuthData(ref: ref)
+      self.firebases[firebaseId] = authData
+    }
+    
+    return authData.logInWithToken(token, providerData: data)
+  }
+  
+  //MARK: Class functions
+  
   class var sharedInstance: FirefeedAuth {
     struct SingletonWrapper {
       static let singleton = FirefeedAuth()
@@ -154,21 +185,12 @@ final class FirefeedAuth {
     return SingletonWrapper.singleton
   }
   
-  class func loginRef(ref: Firebase, withToken token: String) -> AWSTask {
-    return self.sharedInstance.loginRef(ref, withToken: token)
+  class func loginRef(ref: Firebase, withToken token: String, providerData data: [String:String]?) -> AWSTask {
+    return self.sharedInstance.loginRef(ref, withToken: token, providerData: data)
   }
   
-  func loginRef(ref: Firebase, withToken token: String) -> AWSTask {
-    let firebaseId = ref.root.description
-    
-    // Pass to the FirefeedAuthData object, which manages multiple auth requests against the same Firebase
-    var authData = self.firebases[firebaseId] as FirefeedAuthData!
-    
-    if (authData == nil) {
-      authData = FirefeedAuthData(ref: ref, authToken: token)
-      self.firebases[firebaseId] = authData
-    }
-    
-    return authData.login()
+  class func watchAuthForRef(ref: Firebase, withBlock block: FAuthCompletionBlock) -> UInt {
+    return self.sharedInstance.checkAuthForRef(ref, withBlock: block)
   }
 }
+

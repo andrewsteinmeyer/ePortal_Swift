@@ -9,49 +9,56 @@
 import Firebase
 
 /*
-DatabaseManager handles calls out to database
+DatabaseManager handles calls out to AWS Lambda and Firebase
 */
 
 final class DatabaseManager {
   
-  private var lambdaInvoker: AWSLambdaInvoker!
-  private var firefeed: Firefeed!
-  
-  //MARK: Lifecycle
+  private var _lambdaInvoker: AWSLambdaInvoker!
+  private var _firefeed: Firefeed!
   
   private init() {
-    self.lambdaInvoker = AWSLambdaInvoker.defaultLambdaInvoker()
-    self.firefeed = Firefeed(rootUrl: Constants.FirebaseRootUrl)
+    self._lambdaInvoker = AWSLambdaInvoker.defaultLambdaInvoker()
+    self._firefeed = Firefeed(rootUrl: Constants.FirebaseRootUrl)
   }
+  
+  func generateFirebaseTokenWithId(id: String) -> AWSTask {
+    // use lambda to request a login token from Firebase tied to the user's unique cognito identity
+    let params = [ "identity" : id ]
+    return self._lambdaInvoker.invokeFunction("generateFirebaseToken", JSONObject: params)
+  }
+  
+  func logInWithIdentityId(id: String, providerData data: [String: String]?, completionHandler: AWSContinuationBlock) {
+    self.generateFirebaseTokenWithId(id).continueWithBlock() {
+      task in
+      
+      // get firebase token from lambda result
+      let token = task.result as! String
+      
+      return self._firefeed.logInWithToken(token, providerData: data)
+    }.continueWithBlock(completionHandler)
+  }
+  
+  func resumeSessionWithCompletionHandler(id: String, providerData data: [String: String]?, completionHandler: AWSContinuationBlock) {
+    if (self._firefeed.isAuthenticated()) {
+      // already have user, initialize any user data from provider
+      self._firefeed.populateProviderData(data)
+      
+      AWSTask(result: "resuming database session").continueWithBlock(completionHandler)
+    }
+    else {
+     // tried to resume, but no longer authorized.
+     self.logInWithIdentityId(id, providerData: data, completionHandler: completionHandler)
+    }
+  }
+  
+  //MARK: Singleton
   
   class var sharedInstance: DatabaseManager {
     struct SingletonWrapper {
       static let singleton = DatabaseManager()
     }
     return SingletonWrapper.singleton
-  }
-  
-  func getIdentityId() -> String {
-    return ClientManager.sharedInstance.getIdentityId()
-  }
-  
-  func generateFirebaseToken() -> AWSTask {
-    /*
-    use lambda to retrieve a token from Firebase tied to the user's unique cognito identity
-    */
-    let params = [ "identity" : self.getIdentityId() ]
-    
-    return self.lambdaInvoker.invokeFunction("generateFirebaseToken", JSONObject: params)
-  }
-  
-  func loginWithCompletionHandler(completionHandler: AWSContinuationBlock) {
-    self.generateFirebaseToken().continueWithBlock() {
-      task in
-      
-      let token = task.result as! String
-      
-      return self.firefeed.loginWithToken(token)
-    }.continueWithBlock(completionHandler)
   }
 
 }

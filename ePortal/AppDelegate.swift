@@ -35,13 +35,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
       ClientManager.sharedInstance.resumeSessionWithCompletionHandler() {
         task in
         
+        let id = ClientManager.sharedInstance.getIdentityId()
+        let twitterData = ClientManager.sharedInstance.getTwitterUserData()
         println("resumed in AppDelegate so skipping login page")
-        println("trying to login to database, fingers crossed")
         
-        DatabaseManager.sharedInstance.loginWithCompletionHandler() {
+        DatabaseManager.sharedInstance.resumeSessionWithCompletionHandler(id, providerData: twitterData) {
           task in
           
-          //println("Task result: \(task.result)")
+          println("Task result: \(task.result)")
           println("back in AppDelegate after Database login attempt")
           
           return nil

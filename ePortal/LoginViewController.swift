@@ -20,7 +20,6 @@ class LoginViewController: UIViewController {
     super.viewDidLoad()
     
     setupLoginButton()
-    resumeSession()
   }
   
   func loginButtonPressedDown() {
@@ -87,7 +86,10 @@ extension LoginViewController {
     ClientManager.sharedInstance.loginWithCompletionHandler() {
       task in
       
-      DatabaseManager.sharedInstance.loginWithCompletionHandler() {
+      let id = ClientManager.sharedInstance.getIdentityId()
+      let twitterData = ClientManager.sharedInstance.getTwitterUserData()
+      
+      DatabaseManager.sharedInstance.logInWithIdentityId(id, providerData: twitterData) {
         task in
       
         if (task.error == nil) {
@@ -117,23 +119,6 @@ extension LoginViewController {
         
         return nil
       }
-      return nil
-    }
-  }
-  
-  func resumeSession() {
-    ClientManager.sharedInstance.resumeSessionWithCompletionHandler() {
-      task in
-      
-      dispatch_async(GlobalMainQueue) {
-        if (task.error == nil) {
-          println("back to Login controller, aws gave us the credentials")
-        }
-        else {
-          self.alertWithTitle("Error resuming AWS session", message: "Sorry, could not login. Darn it")
-        }
-      }
-      
       return nil
     }
   }

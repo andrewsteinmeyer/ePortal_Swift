@@ -37,13 +37,13 @@ func afterDelay(seconds: Double, closure: () -> ()) {
   dispatch_after(when, dispatch_get_main_queue(), closure)
 }
 
+//MARK: Dictionary merge extension
 
-
-
-/*
-@objc class Utils {
-  class var defaultBackgroundColor: UIColor {
-    return UIColor(red: 236.0/255.0, green: 254.0/255.0, blue: 255.0/255.0, alpha: 1.0)
+extension Dictionary {
+  mutating func unionInPlace(
+    dictionary: Dictionary<Key, Value>) {
+      for (key, value) in dictionary {
+        self[key] = value
+      }
   }
 }
-*/
