@@ -11,7 +11,7 @@ exports.handler = function(event, context) {
   //Try to generate Firebase token
   console.log(event);
 
-  var token = tokenGenerator.createToken({uid: event.identity});
+  var token = tokenGenerator.createToken({uid: event.identity, provider: 'aws'});
 
   if (token) {
     context.succeed(token);
