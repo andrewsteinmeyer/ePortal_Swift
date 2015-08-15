@@ -93,7 +93,7 @@ final class ClientManager {
       }
       
       //Force refresh of credentials to see if we need to merge identities.
-      //User is initially unauthorized.  If they login with Twitter, the new authorized identity
+      //User is initially unauthorized.  When they login with Twitter, the new authorized identity
       //needs to be merged with the previous unauthorized identity to retain the cognito identity id.
       //Currently only supporting Twitter as login provider, but could add more later (Digits, Facebook, Amazon, etc)
       task = self._credentialsProvider.refresh()

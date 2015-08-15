@@ -103,13 +103,13 @@ extension LoginViewController {
               self.toggleLoginButton()
             }
             
-            //we were using segue, but pushing now so that we can pop back to rootViewController
+            //we were using segue, but pushing now so that we can pop back to rootViewController on logout
             //self.performSegueWithIdentifier("ShowMainTabBarController", sender: nil)
           }
         }
         else {
           dispatch_async(GlobalMainQueue) {
-            self.alertWithTitle("Error loggin in with Twitter", message: "Sorry, could not login. Darn it")
+            self.alertWithTitle("Error logging in with Twitter", message: "Sorry, better luck next time")
             
             afterDelay(0.6) {
               self.toggleLoginButton()

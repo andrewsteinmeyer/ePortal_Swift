@@ -72,10 +72,10 @@
 		4EA65E961B5DC7F300B18107 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA65E951B5DC7F300B18107 /* Constants.swift */; };
 		4EA65E981B5DCE6300B18107 /* ClientManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA65E971B5DCE6300B18107 /* ClientManager.swift */; };
 		4EA65EA91B5DD9EB00B18107 /* KeychainAccess.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EA65EA81B5DD9EB00B18107 /* KeychainAccess.framework */; };
-		4ED204D61B716AC60070A2E0 /* Firefeed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED204D51B716AC60070A2E0 /* Firefeed.swift */; };
 		4ED204DA1B722DC00070A2E0 /* FirefeedAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED204D91B722DC00070A2E0 /* FirefeedAuth.swift */; };
 		4ED204E61B7519500070A2E0 /* FirefeedUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED204E51B7519500070A2E0 /* FirefeedUser.swift */; };
 		4EDEEE871B698E8C002582DE /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EDEEE861B698E8C002582DE /* DatabaseManager.swift */; };
+		4EDEF5D91B7F608100F80FD0 /* LambdaHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EDEF5D81B7F608100F80FD0 /* LambdaHandler.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -160,10 +160,10 @@
 		4EA65E951B5DC7F300B18107 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		4EA65E971B5DCE6300B18107 /* ClientManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClientManager.swift; sourceTree = "<group>"; };
 		4EA65EA81B5DD9EB00B18107 /* KeychainAccess.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = KeychainAccess.framework; path = "../../KeychainAccess/Lib/build/Debug-iphoneos/KeychainAccess.framework"; sourceTree = "<group>"; };
-		4ED204D51B716AC60070A2E0 /* Firefeed.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Firefeed.swift; sourceTree = "<group>"; };
 		4ED204D91B722DC00070A2E0 /* FirefeedAuth.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirefeedAuth.swift; sourceTree = "<group>"; };
 		4ED204E51B7519500070A2E0 /* FirefeedUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirefeedUser.swift; sourceTree = "<group>"; };
 		4EDEEE861B698E8C002582DE /* DatabaseManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
+		4EDEF5D81B7F608100F80FD0 /* LambdaHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LambdaHandler.swift; sourceTree = "<group>"; };
 		60EA86A81CF4CE747F455060 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		C678D97103A9EF641508A19A /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -271,7 +271,7 @@
 			children = (
 				4EA65E971B5DCE6300B18107 /* ClientManager.swift */,
 				4EDEEE861B698E8C002582DE /* DatabaseManager.swift */,
-				4ED204D51B716AC60070A2E0 /* Firefeed.swift */,
+				4EDEF5D81B7F608100F80FD0 /* LambdaHandler.swift */,
 				4ED204D91B722DC00070A2E0 /* FirefeedAuth.swift */,
 				4ED204E51B7519500070A2E0 /* FirefeedUser.swift */,
 			);
@@ -550,8 +550,8 @@
 			files = (
 				4EA65E621B5DBC7B00B18107 /* SpringLabel.swift in Sources */,
 				4ED204DA1B722DC00070A2E0 /* FirefeedAuth.swift in Sources */,
+				4EDEF5D91B7F608100F80FD0 /* LambdaHandler.swift in Sources */,
 				4E9460421B7043D10084C9C6 /* Colors.swift in Sources */,
-				4ED204D61B716AC60070A2E0 /* Firefeed.swift in Sources */,
 				4EA65E571B5DBC7B00B18107 /* ImageLoader.swift in Sources */,
 				4EA65E981B5DCE6300B18107 /* ClientManager.swift in Sources */,
 				4E94604F1B704F670084C9C6 /* DiscoverCollectionViewController.swift in Sources */,
