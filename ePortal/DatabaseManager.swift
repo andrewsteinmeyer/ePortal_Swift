@@ -19,13 +19,13 @@ final class DatabaseManager {
   
   private init() {
     self._lambdaInvoker = AWSLambdaInvoker.defaultLambdaInvoker()
-    self._firefeed = Firefeed(rootUrl: Constants.FirebaseRootUrl)
+    self._firefeed = Firefeed(rootUrl: Constants.Firebase.rootUrl)
   }
   
   func generateFirebaseTokenWithId(id: String) -> AWSTask {
     // use lambda to request a login token from Firebase tied to the user's unique cognito identity
     let params = [ "identity" : id ]
-    return self._lambdaInvoker.invokeFunction("generateFirebaseToken", JSONObject: params)
+    return self._lambdaInvoker.invokeFunction(Constants.Lambda.getFirebaseToken, JSONObject: params)
   }
   
   func logInWithIdentityId(id: String, providerData data: [String: String]?, completionHandler: AWSContinuationBlock) {

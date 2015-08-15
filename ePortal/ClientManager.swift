@@ -57,14 +57,14 @@ final class ClientManager {
   
   func initializeCredentials(logins: [NSObject: AnyObject]?) -> AWSTask {
     // Setup AWS Credentials
-    self._credentialsProvider = AWSCognitoCredentialsProvider(regionType: Constants.CognitoRegionType,
-                                                             identityPoolId: Constants.CognitoIdentityPoolId)
+    self._credentialsProvider = AWSCognitoCredentialsProvider(regionType: Constants.AWS.CognitoRegionType,
+                                                             identityPoolId: Constants.AWS.CognitoIdentityPoolId)
     
     if let logins = logins {
       self._credentialsProvider.logins = logins
     }
     
-    let configuration = AWSServiceConfiguration(region: Constants.DefaultServiceRegionType,
+    let configuration = AWSServiceConfiguration(region: Constants.AWS.DefaultServiceRegionType,
                                                 credentialsProvider: self._credentialsProvider)
     
     AWSServiceManager.defaultServiceManager().defaultServiceConfiguration = configuration
@@ -117,7 +117,7 @@ final class ClientManager {
   func resumeSessionWithCompletionHandler(completionHandler: AWSContinuationBlock) {
     self._completionHandler = completionHandler
     
-    if ((self._keychain[Constants.TwitterProvider]) != nil) {
+    if ((self._keychain[Constants.AWS.TwitterProvider]) != nil) {
       println("logging in with twitter")
       loginWithTwitter()
     }
@@ -165,7 +165,7 @@ final class ClientManager {
   
   func isLoggedInWithTwitter() -> Bool {
     var loggedIn = Twitter.sharedInstance().session() != nil;
-    return self._keychain[Constants.TwitterProvider] != nil && loggedIn
+    return self._keychain[Constants.AWS.TwitterProvider] != nil && loggedIn
   }
   
   func loginWithTwitter() {
@@ -191,7 +191,7 @@ final class ClientManager {
   }
   
   func completeTwitterLogin() {
-    self._keychain[Constants.TwitterProvider] = "YES"
+    self._keychain[Constants.AWS.TwitterProvider] = "YES"
     self.completeLogin( ["api.twitter.com": self.loginForTwitterSession( Twitter.sharedInstance().session() )])
     
   }
@@ -203,7 +203,7 @@ final class ClientManager {
   func logoutTwitter() {
     if (Twitter.sharedInstance().session() != nil) {
       Twitter.sharedInstance().logOut()
-      self._keychain[Constants.TwitterProvider] = nil
+      self._keychain[Constants.AWS.TwitterProvider] = nil
       self.clearTwitterUserData()
     }
   }

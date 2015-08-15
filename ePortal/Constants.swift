@@ -9,20 +9,27 @@ import Foundation
 
 struct Constants {
   // AWS Configuration
-  static let CognitoRegionType = AWSRegionType.USEast1
-  static let DefaultServiceRegionType = AWSRegionType.USEast1
-  static let CognitoIdentityPoolId = "us-east-1:e40dbc7f-9b3c-4535-9145-52e5e797dcee"
+  struct AWS {
+    static let CognitoRegionType = AWSRegionType.USEast1
+    static let DefaultServiceRegionType = AWSRegionType.USEast1
+    static let CognitoIdentityPoolId = "us-east-1:e40dbc7f-9b3c-4535-9145-52e5e797dcee"
+    static let TwitterProvider = "Twitter"
+  }
+  
+  // AWS Lambda
+  struct Lambda {
+    static let getFirebaseToken = "generateFirebaseToken"
+  }
   
   // Firebase Configuration
-  static let FirebaseRootUrl = "https://eportal.firebaseio.com"
+  struct Firebase {
+    static let rootUrl = "https://eportal.firebaseio.com"
+  }
   
   // NSUserDefault Keys
   static let DeviceTokenKey = "DeviceToken"
   static let CognitoDeviceTokenKey = "CognitoDeviceTokenKey"
   static let CognitoPushNotification = "CognitoPushNotification"
-  
-  //Providers
-  static let TwitterProvider = "Twitter"
   
   //ViewControllers
   static let loginVC = "LoginViewController"
