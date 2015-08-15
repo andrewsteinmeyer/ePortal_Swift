@@ -271,9 +271,9 @@
 			children = (
 				4EA65E971B5DCE6300B18107 /* ClientManager.swift */,
 				4EDEEE861B698E8C002582DE /* DatabaseManager.swift */,
-				4EDEF5D81B7F608100F80FD0 /* LambdaHandler.swift */,
 				4ED204D91B722DC00070A2E0 /* FirefeedAuth.swift */,
 				4ED204E51B7519500070A2E0 /* FirefeedUser.swift */,
+				4EDEF5D81B7F608100F80FD0 /* LambdaHandler.swift */,
 			);
 			name = API;
 			sourceTree = "<group>";

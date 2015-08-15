@@ -28,8 +28,9 @@ class FirefeedAuthData {
       user in
       
       if let strongSelf = self {
-        // This is the new style, but there doesn't appear to be any way to tell which way the user is going, online or offline?
+        // Handle user logout
         if ( (user == nil) && (strongSelf._user != nil) ) {
+          println("FirefeedAuthData: logging out user")
           strongSelf.onAuthStatusError(error: nil, user: nil)
         }
       }
@@ -137,11 +138,15 @@ class FirefeedAuthData {
     }
   }
   
+  func logout() {
+    // Pass through to Firebase to unauth
+    _ref.unauth()
+  }
+  
 }
 
 
 final class FirefeedAuth {
-  
   private var firebases: [String: FirefeedAuthData]
   
   private init() {
@@ -155,7 +160,7 @@ final class FirefeedAuth {
     var authData: FirefeedAuthData! = self.firebases[firebaseId]
     
     if (authData == nil) {
-      authData = FirefeedAuthData(ref: ref)
+      authData = FirefeedAuthData(ref: ref.root)
       self.firebases[firebaseId] = authData
     }
     
@@ -169,11 +174,26 @@ final class FirefeedAuth {
     var authData = self.firebases[firebaseId] as FirefeedAuthData!
     
     if (authData == nil) {
-      authData = FirefeedAuthData(ref: ref)
+      authData = FirefeedAuthData(ref: ref.root)
       self.firebases[firebaseId] = authData
     }
     
     return authData.logInWithToken(token, providerData: data)
+  }
+  
+  func logoutRef(ref: Firebase) {
+    let firebaseId = ref.root.description
+    
+    // Pass to the FirefeedAuthData object, which manages multiple auth requests against the same Firebase
+    var authData = self.firebases[firebaseId] as FirefeedAuthData!
+    
+    if (authData == nil) {
+      authData = FirefeedAuthData(ref: ref.root)
+      self.firebases[firebaseId] = authData
+    }
+    
+    return authData.logout()
+    
   }
   
   //MARK: Class functions
@@ -185,8 +205,13 @@ final class FirefeedAuth {
     return SingletonWrapper.singleton
   }
   
+  // Pass through methods to singleton
   class func loginRef(ref: Firebase, withToken token: String, providerData data: [String:String]?) -> AWSTask {
     return self.sharedInstance.loginRef(ref, withToken: token, providerData: data)
+  }
+  
+  class func logoutRef(ref: Firebase) {
+    return self.sharedInstance.logoutRef(ref)
   }
   
   class func watchAuthForRef(ref: Firebase, withBlock block: FAuthCompletionBlock) -> UInt {

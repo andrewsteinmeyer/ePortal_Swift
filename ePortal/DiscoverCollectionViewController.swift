@@ -16,20 +16,20 @@ let kHeaderViewHeight: CGFloat = 200
 class DiscoverCollectionViewController: UICollectionViewController {
   
   @IBAction func logoutUser(sender: AnyObject) {
-    if ClientManager.sharedInstance.isLoggedIn() {
-      ClientManager.sharedInstance.logoutWithCompletionHandler() {
-        task in
+    ClientManager.sharedInstance.logoutWithCompletionHandler() {
+      task in
+      
+      DatabaseManager.sharedInstance.logout()
+      
+      dispatch_async(GlobalMainQueue) {
+        println("completing logout")
+        let navVC = UIApplication.sharedApplication().keyWindow?.rootViewController as! UINavigationController
         
-        dispatch_async(GlobalMainQueue) {
-          println("completing logout")
-          let navVC = UIApplication.sharedApplication().keyWindow?.rootViewController as! UINavigationController
-          
-          navVC.popToRootViewControllerAnimated(true)
-          
-        }
+        navVC.popToRootViewControllerAnimated(true)
         
-        return nil
       }
+      
+      return nil
     }
   }
   

@@ -10,6 +10,10 @@ import Firebase
 
 typealias FUserCompletionBlock = (user: FirefeedUser) -> Void
 
+protocol FirefeedUserDelegate: class {
+  func userDidUpdate(user: FirefeedUser)
+}
+
 class FirefeedUser {
   
   private var _loaded: Bool
@@ -19,6 +23,8 @@ class FirefeedUser {
   private var _fullName: String?
   private var _ref: Firebase
   private var _valueHandle: UInt?
+  
+  weak var delegate: FirefeedUserDelegate?
   
   class func loadFromRoot(root: Firebase, withUserData userData: [String:String], completionBlock block: FUserCompletionBlock) -> FirefeedUser {
     // load the user and set the given location, with the given initial data, and setup the callback for when it updates
@@ -55,7 +61,8 @@ class FirefeedUser {
         }
         
         if (strongSelf._loaded == true) {
-          //TODO: just call delegate for updates
+          // just call delegate for updates
+          //TODO: self.delegate.userDidUpdate(self)
         } else {
           userBlock(user: strongSelf)
         }

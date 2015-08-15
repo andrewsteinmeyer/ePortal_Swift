@@ -86,10 +86,18 @@ final class DatabaseManager {
       self._loggedInUser = FirefeedUser.loadFromRoot(self._root, withUserData: initData) {
         user in
         
-        //TODO: notify delegate of user update
-        
         user.updateFromRoot(self._root)
+        self._loggedInUser?.delegate = self
+        //TODO: self.delegate.loginStateDidChange(user)
       }
+    } else {
+      // There is no user logged in.  If we had one before, remove observers
+      if (self._loggedInUser != nil) {
+        //TODO: self._loggedInUser.stopObserving()
+      }
+      
+      self._loggedInUser = nil
+      //TODO: self.delegate.loginStateDidChange(nil)
     }
   }
   
@@ -107,6 +115,13 @@ final class DatabaseManager {
     }
   }
   
+  func logout() {
+    if (self.isAuthenticated()) {
+      println("logging out of firebase")
+      FirefeedAuth.logoutRef(self._root)
+    }
+    
+  }
   
   //MARK: Singleton
   
@@ -116,5 +131,13 @@ final class DatabaseManager {
     }
     return SingletonWrapper.singleton
   }
+}
 
+extension DatabaseManager: FirefeedUserDelegate {
+  
+  func userDidUpdate(user: FirefeedUser) {
+    // Pass through to our delegate that a user was updated
+    //TODO: self.delegate.userDidUpdate(user)
+  }
+  
 }
