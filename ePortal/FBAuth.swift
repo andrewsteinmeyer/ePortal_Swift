@@ -1,5 +1,5 @@
 //
-//  FirefeedAuth.swift
+//  FBAuth.swift
 //  ePortal
 //
 //  Created by Andrew Steinmeyer on 8/5/15.
@@ -8,7 +8,7 @@
 
 typealias FAuthCompletionBlock = (error: NSError?, user: FAuthData?) -> Void
 
-class FirefeedAuthData {
+class FBAuthData {
   private var _blocks: [String: FAuthCompletionBlock]
   private var _ref: Firebase
   private var _luid: UInt
@@ -30,7 +30,7 @@ class FirefeedAuthData {
       if let strongSelf = self {
         // Handle user logout
         if ( (user == nil) && (strongSelf._user != nil) ) {
-          println("FirefeedAuthData: logging out user")
+          println("FBAuthData: logging out user")
           strongSelf.onAuthStatusError(error: nil, user: nil)
         }
       }
@@ -146,21 +146,21 @@ class FirefeedAuthData {
 }
 
 
-final class FirefeedAuth {
-  private var firebases: [String: FirefeedAuthData]
+final class FBAuth {
+  private var firebases: [String: FBAuthData]
   
   private init() {
-    self.firebases = [String: FirefeedAuthData]()
+    self.firebases = [String: FBAuthData]()
   }
   
   func checkAuthForRef(ref: Firebase, withBlock block: FAuthCompletionBlock) -> UInt {
     let firebaseId = ref.root.description
     
-    // Pass to the FirefeedAuthData object, which manages multiple auth requests against the same Firebase
-    var authData: FirefeedAuthData! = self.firebases[firebaseId]
+    // Pass to the FBAuthData object, which manages multiple auth requests against the same Firebase
+    var authData: FBAuthData! = self.firebases[firebaseId]
     
     if (authData == nil) {
-      authData = FirefeedAuthData(ref: ref.root)
+      authData = FBAuthData(ref: ref.root)
       self.firebases[firebaseId] = authData
     }
     
@@ -170,11 +170,11 @@ final class FirefeedAuth {
   func loginRef(ref: Firebase, withToken token: String, providerData data: [String:String]?) -> AWSTask {
     let firebaseId = ref.root.description
     
-    // Pass to the FirefeedAuthData object, which manages multiple auth requests against the same Firebase
-    var authData = self.firebases[firebaseId] as FirefeedAuthData!
+    // Pass to the FBAuthData object, which manages multiple auth requests against the same Firebase
+    var authData = self.firebases[firebaseId] as FBAuthData!
     
     if (authData == nil) {
-      authData = FirefeedAuthData(ref: ref.root)
+      authData = FBAuthData(ref: ref.root)
       self.firebases[firebaseId] = authData
     }
     
@@ -184,11 +184,11 @@ final class FirefeedAuth {
   func logoutRef(ref: Firebase) {
     let firebaseId = ref.root.description
     
-    // Pass to the FirefeedAuthData object, which manages multiple auth requests against the same Firebase
-    var authData = self.firebases[firebaseId] as FirefeedAuthData!
+    // Pass to the FBAuthData object, which manages multiple auth requests against the same Firebase
+    var authData = self.firebases[firebaseId] as FBAuthData!
     
     if (authData == nil) {
-      authData = FirefeedAuthData(ref: ref.root)
+      authData = FBAuthData(ref: ref.root)
       self.firebases[firebaseId] = authData
     }
     
@@ -198,9 +198,9 @@ final class FirefeedAuth {
   
   //MARK: Class functions
   
-  class var sharedInstance: FirefeedAuth {
+  class var sharedInstance: FBAuth {
     struct SingletonWrapper {
-      static let singleton = FirefeedAuth()
+      static let singleton = FBAuth()
     }
     return SingletonWrapper.singleton
   }

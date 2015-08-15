@@ -16,7 +16,7 @@ final class DatabaseManager {
   
   private var _root: Firebase
   private var _userRef: Firebase?
-  private var _loggedInUser: FirefeedUser?
+  private var _loggedInUser: FBUser?
   private var _feeds: [String: String]
   private var _users: [String: String]
   private var _broadcasts: [String: String]
@@ -30,7 +30,7 @@ final class DatabaseManager {
     _broadcasts = [:]
     
     // Auth handled via a global singleton. Prevents modules squashing each other
-    FirefeedAuth.watchAuthForRef(self._root, withBlock: { [weak self]
+    FBAuth.watchAuthForRef(self._root, withBlock: { [weak self]
       (error: NSError?, user: FAuthData?) in
     
       if let strongSelf = self {
@@ -58,7 +58,7 @@ final class DatabaseManager {
     // initialize any user data from provider
     self.populateProviderData(data)
     
-    return FirefeedAuth.loginRef(self._root, withToken: token, providerData: data)
+    return FBAuth.loginRef(self._root, withToken: token, providerData: data)
   }
   
   func resumeSessionWithCompletionHandler(id: String, providerData data: [String: String]?, completionHandler: AWSContinuationBlock) {
@@ -83,7 +83,7 @@ final class DatabaseManager {
       
       self._userRef = self._root.childByAppendingPath("users").childByAppendingPath(userData.uid)
       // populate user with updated information from Firebase and set up observers
-      self._loggedInUser = FirefeedUser.loadFromRoot(self._root, withUserData: initData) {
+      self._loggedInUser = FBUser.loadFromRoot(self._root, withUserData: initData) {
         user in
         
         user.updateFromRoot(self._root)
@@ -118,7 +118,7 @@ final class DatabaseManager {
   func logout() {
     if (self.isAuthenticated()) {
       println("logging out of firebase")
-      FirefeedAuth.logoutRef(self._root)
+      FBAuth.logoutRef(self._root)
     }
     
   }
@@ -133,9 +133,9 @@ final class DatabaseManager {
   }
 }
 
-extension DatabaseManager: FirefeedUserDelegate {
+extension DatabaseManager: FBUserDelegate {
   
-  func userDidUpdate(user: FirefeedUser) {
+  func userDidUpdate(user: FBUser) {
     // Pass through to our delegate that a user was updated
     //TODO: self.delegate.userDidUpdate(user)
   }

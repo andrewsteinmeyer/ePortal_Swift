@@ -1,5 +1,5 @@
 //
-//  User.swift
+//  FBUser.swift
 //  ePortal
 //
 //  Created by Andrew Steinmeyer on 8/7/15.
@@ -8,13 +8,13 @@
 
 import Firebase
 
-typealias FUserCompletionBlock = (user: FirefeedUser) -> Void
+typealias FUserCompletionBlock = (user: FBUser) -> Void
 
-protocol FirefeedUserDelegate: class {
-  func userDidUpdate(user: FirefeedUser)
+protocol FBUserDelegate: class {
+  func userDidUpdate(user: FBUser)
 }
 
-class FirefeedUser {
+class FBUser {
   
   private var _loaded: Bool
   private var _userId: String
@@ -24,14 +24,14 @@ class FirefeedUser {
   private var _ref: Firebase
   private var _valueHandle: UInt?
   
-  weak var delegate: FirefeedUserDelegate?
+  weak var delegate: FBUserDelegate?
   
-  class func loadFromRoot(root: Firebase, withUserData userData: [String:String], completionBlock block: FUserCompletionBlock) -> FirefeedUser {
+  class func loadFromRoot(root: Firebase, withUserData userData: [String:String], completionBlock block: FUserCompletionBlock) -> FBUser {
     // load the user and set the given location, with the given initial data, and setup the callback for when it updates
     let userId = userData["userId"]
     let peopleRef = root.childByAppendingPath("people").childByAppendingPath(userId)
     
-    return FirefeedUser(initRef: peopleRef, initialData: userData, andBlock: block)
+    return FBUser(initRef: peopleRef, initialData: userData, andBlock: block)
   }
   
   init(initRef ref: Firebase, initialData userData: [String:String], andBlock userBlock: FUserCompletionBlock) {
